@@ -1,0 +1,1 @@
+Put Player spritesheets in this folder.
