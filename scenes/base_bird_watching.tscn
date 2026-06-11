@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://boaoiscsocj8u"]
+
+[node name="BaseBirdWatching" type="Node2D" unique_id=1728431069]
+
+[node name="CanvasLayer-3" type="CanvasLayer" parent="." unique_id=424427643]
+layer = -3
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
+
+[node name="CanvasLayer-2" type="CanvasLayer" parent="." unique_id=233039880]
+layer = -2
+follow_viewport_enabled = true
+follow_viewport_scale = 0.8
+
+[node name="CanvasLayer-1" type="CanvasLayer" parent="." unique_id=778633630]
+layer = -1
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="CanvasLayer0" type="CanvasLayer" parent="." unique_id=1651493334]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="CanvasLayer1" type="CanvasLayer" parent="." unique_id=2002944551]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=43520109]
+layer = 2
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=329065854]
+layer = 3
+follow_viewport_enabled = true
+follow_viewport_scale = 1.3
