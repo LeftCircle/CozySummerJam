@@ -15,6 +15,10 @@ run/main_scene="uid://nmmaq5c6km5y"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LevelManager="*uid://bmcm3360asht6"
+
 [global_group]
 
 Interactables=""

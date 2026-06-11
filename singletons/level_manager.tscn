@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bmcm3360asht6"]
+
+[ext_resource type="Script" uid="uid://cs6xl8emfjj1k" path="res://singletons/level_manager.gd" id="1_cx6oi"]
+[ext_resource type="PackedScene" uid="uid://c6t26cuyqirmi" path="res://scenes/world/camp/camp.tscn" id="2_4dkii"]
+[ext_resource type="PackedScene" uid="uid://cku3cb7b2uor" path="res://scenes/world/beach/beach.tscn" id="3_uknue"]
+
+[node name="LevelManager" type="Node2D" unique_id=1244868023]
+script = ExtResource("1_cx6oi")
+level_transitions = Dictionary[String, PackedScene]({
+"Beach": ExtResource("3_uknue"),
+"Camp": ExtResource("2_4dkii")
+})
