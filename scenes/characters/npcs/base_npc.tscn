@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bh8r36ha47jif"]
+
+[ext_resource type="Script" uid="uid://ds70qba6a0p0d" path="res://scenes/characters/npcs/base_npc.gd" id="1_iw4jp"]
+[ext_resource type="Texture2D" uid="uid://cce7thl088kmc" path="res://icon.svg" id="2_kbx2x"]
+[ext_resource type="PackedScene" uid="uid://c21hqspdcn52f" path="res://scenes/characters/player/components/interactable.tscn" id="3_313cy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_313cy"]
+
+[node name="BaseNpc" type="Area2D" unique_id=1407839211]
+script = ExtResource("1_iw4jp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=981883342]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_313cy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=194605030]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(0, -16)
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("2_kbx2x")
+
+[node name="Interactable" parent="." unique_id=1112543330 instance=ExtResource("3_313cy")]
+
+[node name="CollisionShape2D" parent="Interactable" index="0" unique_id=1964486561]
+position = Vector2(0, -16)
+
+[editable path="Interactable"]

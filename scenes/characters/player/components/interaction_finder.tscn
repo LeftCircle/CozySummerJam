@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://beiho85yylisq"]
+
+[ext_resource type="Script" uid="uid://bxruyhax5bv53" path="res://scenes/characters/player/components/interaction_finder.gd" id="1_cjnvj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn0p0"]
+resource_local_to_scene = true
+
+[node name="InteractionFinder" type="Area2D" unique_id=160270195]
+script = ExtResource("1_cjnvj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=41752215]
+shape = SubResource("RectangleShape2D_vn0p0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bbw6ds64xfwgf"]
+
+[ext_resource type="Script" uid="uid://kt1vehgn6qo5" path="res://scenes/world/portal.gd" id="1_fcgh7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcgh7"]
+
+[node name="Portal" type="Area2D" unique_id=66748262]
+script = ExtResource("1_fcgh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1026089601]
+shape = SubResource("RectangleShape2D_fcgh7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

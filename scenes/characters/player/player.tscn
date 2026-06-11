@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://d0tap6e6eosq4"]
+
+[ext_resource type="Script" uid="uid://cg6wlu76xy4e7" path="res://scenes/characters/player/player.gd" id="1_7uws0"]
+[ext_resource type="Script" uid="uid://cd0b8pkhxyk3e" path="res://scenes/characters/resources/movement.gd" id="2_686vu"]
+[ext_resource type="Texture2D" uid="uid://cce7thl088kmc" path="res://icon.svg" id="2_t61fv"]
+[ext_resource type="Script" uid="uid://ofcpyo2xtefe" path="res://scenes/characters/player/components/input_processor.gd" id="4_hss88"]
+[ext_resource type="PackedScene" uid="uid://beiho85yylisq" path="res://scenes/characters/player/components/interaction_finder.tscn" id="5_qd3e3"]
+[ext_resource type="Script" uid="uid://bid8t7ctbs6h1" path="res://scenes/characters/player/components/interaction_manager.gd" id="6_6avc5"]
+
+[sub_resource type="Resource" id="Resource_hss88"]
+script = ExtResource("2_686vu")
+metadata/_custom_type_script = "uid://cd0b8pkhxyk3e"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_686vu"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd3e3"]
+resource_local_to_scene = true
+size = Vector2(64, 64)
+
+[node name="Player" type="CharacterBody2D" unique_id=1863497016]
+motion_mode = 1
+script = ExtResource("1_7uws0")
+movement = SubResource("Resource_hss88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=397953592]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_686vu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1974204913]
+position = Vector2(0, -16)
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("2_t61fv")
+
+[node name="InputProcessor" type="Node" parent="." unique_id=372531898]
+script = ExtResource("4_hss88")
+metadata/_custom_type_script = "uid://ofcpyo2xtefe"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1809659448]
+position_smoothing_enabled = true
+
+[node name="InteractionFinder" parent="." unique_id=160270195 instance=ExtResource("5_qd3e3")]
+
+[node name="CollisionShape2D" parent="InteractionFinder" index="0" unique_id=41752215]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_qd3e3")
+
+[node name="InteractionManager" type="Node" parent="." unique_id=415746523 node_paths=PackedStringArray("interactor")]
+script = ExtResource("6_6avc5")
+interactor = NodePath("..")
+metadata/_custom_type_script = "uid://bid8t7ctbs6h1"
+
+[connection signal="interact" from="InputProcessor" to="InteractionManager" method="trigger_interaction"]
+[connection signal="interact_area" from="InteractionFinder" to="InteractionManager" method="register_interactables"]
+[connection signal="interact_body" from="InteractionFinder" to="InteractionManager" method="register_interactables"]
+[connection signal="remove_area" from="InteractionFinder" to="InteractionManager" method="remove_interacble"]
+[connection signal="remove_body" from="InteractionFinder" to="InteractionManager" method="remove_interacble"]
+
+[editable path="InteractionFinder"]
