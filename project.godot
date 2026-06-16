@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 LevelManager="*uid://bmcm3360asht6"
 
+[dotnet]
+
+project/assembly_name="SummerCozyJam"
+
 [global_group]
 
 Interactables=""

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://d2krnexga8nry"]
+
+[ext_resource type="Texture2D" uid="uid://dmx2it34krcc6" path="res://assets/levels/waterfall/waterfallLayer01.png" id="1_qgqqr"]
+[ext_resource type="Texture2D" uid="uid://ckmtvo0rhhd2h" path="res://assets/levels/waterfall/waterfallLayer03.png" id="2_v22ig"]
+[ext_resource type="Texture2D" uid="uid://df83kkxe0qeek" path="res://assets/levels/waterfall/waterfallLayer04.png" id="3_oyxbo"]
+[ext_resource type="Texture2D" uid="uid://1soe6xopgwyn" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG1.png" id="4_080ub"]
+[ext_resource type="Texture2D" uid="uid://bir5g561brd85" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG2.png" id="5_8pqiw"]
+[ext_resource type="Texture2D" uid="uid://d1tnblifku2sc" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG3.png" id="6_tm076"]
+[ext_resource type="Texture2D" uid="uid://db3nap17235c" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG4.png" id="7_rh3p3"]
+[ext_resource type="Texture2D" uid="uid://b8xqefcatb6h8" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG5.png" id="8_gavse"]
+[ext_resource type="Texture2D" uid="uid://cx400s6ep2gtc" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG6.png" id="9_2klhp"]
+[ext_resource type="Texture2D" uid="uid://nuaqm65llt6i" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG7.png" id="10_7kv5i"]
+[ext_resource type="Texture2D" uid="uid://5xgvuan05n22" path="res://assets/levels/waterfall/waterfallLayer06.png" id="11_lb434"]
+[ext_resource type="Texture2D" uid="uid://bmpc1xf73b15s" path="res://assets/levels/waterfall/waterfallCloud01.png" id="12_fq84s"]
+[ext_resource type="Texture2D" uid="uid://dufxulh6tpgeb" path="res://assets/levels/waterfall/waterfallCloud02.png" id="13_r00gd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3y3o4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_080ub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8pqiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tm076")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rh3p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gavse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2klhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7kv5i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Scene_Waterfall" type="Node2D" unique_id=2116167288]
+
+[node name="Scenes" type="Node2D" parent="." unique_id=851101907]
+position = Vector2(1920, 1080)
+
+[node name="Background" type="Sprite2D" parent="Scenes" unique_id=1147398204]
+texture = ExtResource("1_qgqqr")
+
+[node name="Midground_Far" type="Sprite2D" parent="Scenes" unique_id=287367940]
+texture = ExtResource("2_v22ig")
+
+[node name="Midground_Close" type="Sprite2D" parent="Scenes" unique_id=868145534]
+texture = ExtResource("3_oyxbo")
+
+[node name="Waterfall" type="AnimatedSprite2D" parent="Scenes" unique_id=8190325]
+sprite_frames = SubResource("SpriteFrames_3y3o4")
+frame_progress = 0.41707316
+
+[node name="Foreground" type="Sprite2D" parent="Scenes" unique_id=1290834590]
+texture = ExtResource("11_lb434")
+
+[node name="Clouds" type="Node2D" parent="Scenes" unique_id=350961273]
+
+[node name="Cloud_01" type="Sprite2D" parent="Scenes/Clouds" unique_id=1369992304]
+position = Vector2(-323, -904)
+texture = ExtResource("12_fq84s")
+
+[node name="Cloud_02" type="Sprite2D" parent="Scenes/Clouds" unique_id=793799636]
+position = Vector2(1074, -646)
+texture = ExtResource("13_r00gd")
+
+[node name="Environment" type="Node2D" parent="." unique_id=849968514]
+position = Vector2(1920, 1080)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Environment" unique_id=1481887724]
+visible = false
+color = Color(0.83812255, 0.4659701, 0.4002698, 1)
