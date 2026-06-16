@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://boaoiscsocj8u"]
 
+[ext_resource type="Script" uid="uid://dlqcgq6oie5he" path="res://scenes/base_bird_watching.gd" id="1_2ilf1"]
+
 [node name="BaseBirdWatching" type="Node2D" unique_id=1728431069]
+script = ExtResource("1_2ilf1")
 
 [node name="CanvasLayer-3" type="CanvasLayer" parent="." unique_id=424427643]
 layer = -3

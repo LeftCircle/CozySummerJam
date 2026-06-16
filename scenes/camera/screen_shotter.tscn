@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://7vbkvuph4gs6"]
+
+[ext_resource type="Script" uid="uid://bwpqxjrer0bsr" path="res://scenes/camera/screen_shotter.gd" id="1_83ebf"]
+[ext_resource type="Texture2D" uid="uid://cce7thl088kmc" path="res://icon.svg" id="2_h8w8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8w8n"]
+size = Vector2(256, 256)
+
+[node name="ScreenShotter" type="Node2D" unique_id=945752562]
+script = ExtResource("1_83ebf")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1374058573]
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=680969939]
+zoom = Vector2(4.555, 2.54)
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport" unique_id=546377175]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_h8w8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=551283693]
+shape = SubResource("RectangleShape2D_h8w8n")
