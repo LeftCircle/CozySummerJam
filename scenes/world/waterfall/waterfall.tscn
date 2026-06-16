@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://5xgvuan05n22" path="res://assets/levels/waterfall/waterfallLayer06.png" id="11_lb434"]
 [ext_resource type="Texture2D" uid="uid://bmpc1xf73b15s" path="res://assets/levels/waterfall/waterfallCloud01.png" id="12_fq84s"]
 [ext_resource type="Texture2D" uid="uid://dufxulh6tpgeb" path="res://assets/levels/waterfall/waterfallCloud02.png" id="13_r00gd"]
+[ext_resource type="Script" uid="uid://q3g6edgw5f0y" path="res://scenes/levels/waterfall/cloud.gd" id="14_v22ig"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3y3o4"]
 animations = [{
@@ -46,7 +47,7 @@ animations = [{
 [node name="Scene_Waterfall" type="Node2D" unique_id=2116167288]
 
 [node name="Scenes" type="Node2D" parent="." unique_id=851101907]
-position = Vector2(1920, 1080)
+position = Vector2(960, 540)
 
 [node name="Background" type="Sprite2D" parent="Scenes" unique_id=1147398204]
 texture = ExtResource("1_qgqqr")
@@ -59,7 +60,7 @@ texture = ExtResource("3_oyxbo")
 
 [node name="Waterfall" type="AnimatedSprite2D" parent="Scenes" unique_id=8190325]
 sprite_frames = SubResource("SpriteFrames_3y3o4")
-frame_progress = 0.41707316
+autoplay = "default"
 
 [node name="Foreground" type="Sprite2D" parent="Scenes" unique_id=1290834590]
 texture = ExtResource("11_lb434")
@@ -67,16 +68,22 @@ texture = ExtResource("11_lb434")
 [node name="Clouds" type="Node2D" parent="Scenes" unique_id=350961273]
 
 [node name="Cloud_01" type="Sprite2D" parent="Scenes/Clouds" unique_id=1369992304]
-position = Vector2(-323, -904)
+position = Vector2(-162, -453)
 texture = ExtResource("12_fq84s")
+script = ExtResource("14_v22ig")
+min_scale = 0.8
+max_scale = 1.2
 
 [node name="Cloud_02" type="Sprite2D" parent="Scenes/Clouds" unique_id=793799636]
-position = Vector2(1074, -646)
+position = Vector2(536, -328)
 texture = ExtResource("13_r00gd")
+script = ExtResource("14_v22ig")
+min_scale = 0.8
+max_scale = 1.2
 
 [node name="Environment" type="Node2D" parent="." unique_id=849968514]
 position = Vector2(1920, 1080)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Environment" unique_id=1481887724]
 visible = false
-color = Color(0.83812255, 0.4659701, 0.4002698, 1)
+color = Color(0.21407828, 0.17925584, 0.3682745, 1)
