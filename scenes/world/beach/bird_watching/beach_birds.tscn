@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://boaoiscsocj8u" path="res://scenes/base_bird_watching.tscn" id="1_8y4n4"]
 [ext_resource type="Texture2D" uid="uid://dqis6cwjrv3la" path="res://assets/placeholder/world/tilemap_packed.png" id="2_o0xxn"]
 [ext_resource type="Shader" uid="uid://betupunc464aq" path="res://assets/shaders/canvas_blur.gdshader" id="3_0on32"]
-[ext_resource type="Shader" uid="uid://d0qhyaif8tqby" path="res://assets/shaders/blur.gdshader" id="3_b4y7c"]
 [ext_resource type="Script" uid="uid://57viadfonbkd" path="res://scenes/world/beach/bird_watching/parallax_layer.gd" id="3_jxjwu"]
 [ext_resource type="Texture2D" uid="uid://cce7thl088kmc" path="res://icon.svg" id="6_hjba6"]
 [ext_resource type="Texture2D" uid="uid://bjb5smk0kyngp" path="res://screenshot.png" id="7_jxjwu"]
@@ -251,13 +250,9 @@ sources/0 = SubResource("TileSetAtlasSource_b4y7c")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wcrdk"]
 shader = ExtResource("3_0on32")
-shader_parameter/strength = 0.2190000104025
+shader_parameter/strength = 0.0
 shader_parameter/sample_power = 4
 shader_parameter/is_canvas_group = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0on32"]
-shader = ExtResource("3_b4y7c")
-shader_parameter/blur_amount = 1.5
 
 [node name="BaseBirdWatching" unique_id=1728431069 node_paths=PackedStringArray("cl", "sprite_for_img", "camera") instance=ExtResource("1_8y4n4")]
 cl = NodePath("CanvasLayer0")
@@ -285,15 +280,6 @@ position = Vector2(186.36363, 191.81818)
 position = Vector2(-158.18181, -10.90909)
 tile_map_data = PackedByteArray("AAATAAAAAAAJAAQAAAAUAAEAAAAJAAMAAAAVAAEAAAAIAAQAAAATAP7/AAAIAAMAAAATAP//AAAIAAQAAAAUAP//AAAIAAMAAAAUAAAAAAAIAAQAAAAVAP//AAAJAAMAAAAVAAAAAAAIAAMAAAAWAP//AAAIAAMAAAAWAAAAAAAIAAQAAAA=")
 tile_set = SubResource("TileSet_0on32")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="1" unique_id=699144068]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="2" unique_id=1072397663]
-material = SubResource("ShaderMaterial_0on32")
-offset_left = 324.54544
-offset_top = 128.18181
-offset_right = 380.90906
-offset_bottom = 179.99998
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="7" unique_id=1870722033]
 modulate = Color(1, 0, 0, 1)

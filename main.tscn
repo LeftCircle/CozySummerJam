@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://nmmaq5c6km5y"]
 
+[ext_resource type="PackedScene" uid="uid://b58eckjysiymo" path="res://scenes/world/beach/bird_watching/beach_birds.tscn" id="1_ig7tw"]
+
 [node name="Main" type="Node" unique_id=2043772]
+
+[node name="BaseBirdWatching" parent="." unique_id=1728431069 instance=ExtResource("1_ig7tw")]

@@ -14,28 +14,18 @@ func _process(delta):
 		img.save_png("res://FullScreenshot.png")
 		var img_texture = ImageTexture.new()
 		img_texture = img_texture.create_from_image(img)
-		# The image loads in centered at screen_w / 2, screen_h / 2. 
-		# Just translate it based on where the mouse is and it will save
-		# by - mouse_pos / 2
-		
-		# Might be able to set this into a different viewport, then
-		# take a screenshot of it again to save the final image. 
-		# Have to set the size of the sprite to inverse the scale of the camera
+	
 		sprite_for_img.texture = img_texture
+		# screen_width - (mouse_position * camera.zoom) - half_screen_width + half_frame_size
 		sprite_for_img.position = Vector2(1152, 648) - (get_global_mouse_position() * camera.zoom) - Vector2(1152, 648) / 2.0
 		sprite_for_img.position += Vector2(64, 64)
 		print(get_global_mouse_position())
 		print(Vector2(1152, 648) / camera.zoom)
-		#sprite_for_img.scale = Vector2.ONE / camera.zoom
-		#sprite_for_img.region_enabled = true
-		#var mp : Vector2 = get_global_mouse_position()
-		#sprite_for_img.region_rect = Rect2(0, 0, 1158, 648)
+		
 		await RenderingServer.frame_post_draw
 		$SubViewportContainer/SubViewport.get_texture().get_image().save_png("res://Screenshot.png")
 
-		#print("Snapped")
-		#take_screenshoot()
-
+# Could clean it up following this function
 func take_screenshoot() -> void:
 	# Create the SubViewport 
 	var sub_viewport = SubViewport.new()
