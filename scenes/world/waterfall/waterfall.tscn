@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2krnexga8nry"]
 
 [ext_resource type="Texture2D" uid="uid://dmx2it34krcc6" path="res://assets/levels/waterfall/waterfallLayer01.png" id="1_qgqqr"]
+[ext_resource type="Shader" uid="uid://dj5tr01cfm3tp" path="res://assets/shaders/vfx_star.gdshader" id="2_rh3p3"]
 [ext_resource type="Texture2D" uid="uid://ckmtvo0rhhd2h" path="res://assets/levels/waterfall/waterfallLayer03.png" id="2_v22ig"]
 [ext_resource type="Texture2D" uid="uid://df83kkxe0qeek" path="res://assets/levels/waterfall/waterfallLayer04.png" id="3_oyxbo"]
 [ext_resource type="Texture2D" uid="uid://1soe6xopgwyn" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG1.png" id="4_080ub"]
@@ -14,6 +15,22 @@
 [ext_resource type="Texture2D" uid="uid://bmpc1xf73b15s" path="res://assets/levels/waterfall/waterfallCloud01.png" id="12_fq84s"]
 [ext_resource type="Texture2D" uid="uid://dufxulh6tpgeb" path="res://assets/levels/waterfall/waterfallCloud02.png" id="13_r00gd"]
 [ext_resource type="Script" uid="uid://q3g6edgw5f0y" path="res://scenes/levels/waterfall/cloud.gd" id="14_v22ig"]
+[ext_resource type="Shader" uid="uid://cwylhubbtfj4d" path="res://assets/shaders/waterfall_water/waterfall_water.gdshader" id="15_oyxbo"]
+[ext_resource type="Texture2D" uid="uid://w5xgwhdyi6mk" path="res://assets/shaders/waterfall_water/waterfall_water_shaderMask.png" id="16_8pqiw"]
+[ext_resource type="Texture2D" uid="uid://cce7thl088kmc" path="res://icon.svg" id="17_tm076"]
+[ext_resource type="PackedScene" uid="uid://bihh1ol0cd65k" path="res://scenes/vfx/vfx_firely/vfx_firefly.tscn" id="18_tm076"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gavse"]
+shader = ExtResource("2_rh3p3")
+shader_parameter/background_color = Color(0.14152688, 0.20668572, 0.43219575, 1)
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/density = 1.3609999655667
+shader_parameter/layer_parascale = 3
+shader_parameter/star_size = 3.0
+shader_parameter/twinkle_effect = 0.499999988824
+shader_parameter/twinkle_speed = 0.3
+shader_parameter/pixelate_enabled = false
+shader_parameter/pixelate_count = 100.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3y3o4"]
 animations = [{
@@ -44,6 +61,37 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lb434"]
+frequency = 0.1001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fq84s"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_lb434")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r00gd"]
+frequency = 0.165
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3y3o4"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_r00gd")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmujv"]
+shader = ExtResource("15_oyxbo")
+shader_parameter/mask_texture = ExtResource("16_8pqiw")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_fq84s")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_3y3o4")
+shader_parameter/scroll1 = Vector2(0.01, 0.005)
+shader_parameter/scroll2 = Vector2(-0.01, -0.005)
+shader_parameter/distortion_strength = -0.01199995307000001
+shader_parameter/tone_color = Color(1, 1, 1, 0.4627451)
+shader_parameter/top_color = Color(0.1882353, 0.80784315, 0.92156863, 0.44313726)
+shader_parameter/light_start = 0.4210000199975
+shader_parameter/light_end = 0.62400002964
+
 [node name="Scene_Waterfall" type="Node2D" unique_id=2116167288]
 
 [node name="Scenes" type="Node2D" parent="." unique_id=851101907]
@@ -51,6 +99,22 @@ position = Vector2(960, 540)
 
 [node name="Background" type="Sprite2D" parent="Scenes" unique_id=1147398204]
 texture = ExtResource("1_qgqqr")
+
+[node name="NightSky" type="ColorRect" parent="Scenes" unique_id=621177262]
+visible = false
+material = SubResource("ShaderMaterial_gavse")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Midground_Far" type="Sprite2D" parent="Scenes" unique_id=287367940]
 texture = ExtResource("2_v22ig")
@@ -86,4 +150,18 @@ position = Vector2(1920, 1080)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Environment" unique_id=1481887724]
 visible = false
-color = Color(0.21407828, 0.17925584, 0.3682745, 1)
+color = Color(0.3244561, 0.42578465, 0.67224294, 1)
+
+[node name="Shader" type="Node2D" parent="Environment" unique_id=1752521035]
+
+[node name="Shader_Water" type="Sprite2D" parent="Environment/Shader" unique_id=1964453672]
+material = SubResource("ShaderMaterial_jmujv")
+position = Vector2(-960, -540)
+scale = Vector2(15.000003, 8.479999)
+texture = ExtResource("17_tm076")
+
+[node name="VFX" type="Node2D" parent="Environment" unique_id=738438946]
+visible = false
+
+[node name="Firefly" parent="Environment/VFX" unique_id=1928004762 instance=ExtResource("18_tm076")]
+position = Vector2(-1506, -200)
