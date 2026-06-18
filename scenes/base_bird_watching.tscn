@@ -20,7 +20,6 @@ follow_viewport_scale = 0.7
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer-3" unique_id=1544375683]
 material = SubResource("ShaderMaterial_ix30s")
-position = Vector2(186.36363, 191.81818)
 
 [node name="CanvasLayer-2" type="CanvasLayer" parent="." unique_id=233039880]
 layer = -2
@@ -29,7 +28,6 @@ follow_viewport_scale = 0.8
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer-2" unique_id=1562478865]
 material = SubResource("ShaderMaterial_ix30s")
-position = Vector2(186.36363, 191.81818)
 
 [node name="CanvasLayer-1" type="CanvasLayer" parent="." unique_id=778633630]
 layer = -1
@@ -38,7 +36,6 @@ follow_viewport_scale = 0.9
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer-1" unique_id=1797850078]
 material = SubResource("ShaderMaterial_ix30s")
-position = Vector2(186.36363, 191.81818)
 
 [node name="CanvasLayer0" type="CanvasLayer" parent="." unique_id=1651493334]
 layer = 0
@@ -46,7 +43,6 @@ follow_viewport_enabled = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer0" unique_id=989673233]
 material = SubResource("ShaderMaterial_ix30s")
-position = Vector2(186.36363, 191.81818)
 
 [node name="CanvasLayer1" type="CanvasLayer" parent="." unique_id=2002944551]
 follow_viewport_enabled = true
@@ -54,7 +50,6 @@ follow_viewport_scale = 1.1
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer1" unique_id=14983282]
 material = SubResource("ShaderMaterial_ix30s")
-position = Vector2(186.36363, 191.81818)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=43520109]
 layer = 2
@@ -63,7 +58,6 @@ follow_viewport_scale = 1.2
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer2" unique_id=482891979]
 material = SubResource("ShaderMaterial_ix30s")
-position = Vector2(186.36363, 191.81818)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=329065854]
 layer = 3
@@ -72,4 +66,3 @@ follow_viewport_scale = 1.3
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer3" unique_id=344384017]
 material = SubResource("ShaderMaterial_ix30s")
-position = Vector2(186.36363, 191.81818)

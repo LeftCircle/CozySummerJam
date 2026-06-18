@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://evah55fc26eb"]
+
+[ext_resource type="PackedScene" uid="uid://boaoiscsocj8u" path="res://scenes/base_bird_watching.tscn" id="1_0u3o4"]
+[ext_resource type="Shader" uid="uid://betupunc464aq" path="res://assets/shaders/canvas_blur.gdshader" id="2_tegpt"]
+[ext_resource type="Texture2D" uid="uid://dmx2it34krcc6" path="res://assets/levels/waterfall/waterfallLayer01.png" id="3_tegpt"]
+[ext_resource type="Shader" uid="uid://dj5tr01cfm3tp" path="res://assets/shaders/vfx_star.gdshader" id="4_sfgi6"]
+[ext_resource type="Texture2D" uid="uid://bmpc1xf73b15s" path="res://assets/levels/waterfall/waterfallCloud01.png" id="5_jvllu"]
+[ext_resource type="Script" uid="uid://q3g6edgw5f0y" path="res://scenes/levels/waterfall/cloud.gd" id="6_1ey4f"]
+[ext_resource type="Texture2D" uid="uid://dufxulh6tpgeb" path="res://assets/levels/waterfall/waterfallCloud02.png" id="7_rbq6h"]
+[ext_resource type="Shader" uid="uid://cwylhubbtfj4d" path="res://assets/shaders/waterfall_water/waterfall_water.gdshader" id="8_ukjuh"]
+[ext_resource type="Texture2D" uid="uid://w5xgwhdyi6mk" path="res://assets/shaders/waterfall_water/waterfall_water_shaderMask.png" id="9_spt7h"]
+[ext_resource type="Texture2D" uid="uid://cce7thl088kmc" path="res://icon.svg" id="10_itofr"]
+[ext_resource type="Texture2D" uid="uid://ckmtvo0rhhd2h" path="res://assets/levels/waterfall/waterfallLayer03.png" id="11_u270u"]
+[ext_resource type="Texture2D" uid="uid://df83kkxe0qeek" path="res://assets/levels/waterfall/waterfallLayer04.png" id="12_c35dd"]
+[ext_resource type="Texture2D" uid="uid://1soe6xopgwyn" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG1.png" id="13_ghtnl"]
+[ext_resource type="Texture2D" uid="uid://bir5g561brd85" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG2.png" id="14_u4psi"]
+[ext_resource type="Texture2D" uid="uid://d1tnblifku2sc" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG3.png" id="15_n61jp"]
+[ext_resource type="Texture2D" uid="uid://db3nap17235c" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG4.png" id="16_l202w"]
+[ext_resource type="Texture2D" uid="uid://b8xqefcatb6h8" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG5.png" id="17_l07tl"]
+[ext_resource type="Texture2D" uid="uid://cx400s6ep2gtc" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG6.png" id="18_c5ysb"]
+[ext_resource type="Texture2D" uid="uid://nuaqm65llt6i" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG7.png" id="19_op4m6"]
+[ext_resource type="PackedScene" uid="uid://bihh1ol0cd65k" path="res://scenes/vfx/vfx_firely/vfx_firefly.tscn" id="20_o45xt"]
+[ext_resource type="Texture2D" uid="uid://5xgvuan05n22" path="res://assets/levels/waterfall/waterfallLayer06.png" id="21_wv3o6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvllu"]
+resource_local_to_scene = true
+shader = ExtResource("2_tegpt")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bp18d"]
+shader = ExtResource("4_sfgi6")
+shader_parameter/background_color = Color(0.14152688, 0.20668572, 0.43219575, 1)
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/density = 1.3609999655667
+shader_parameter/layer_parascale = 3
+shader_parameter/star_size = 3.0
+shader_parameter/twinkle_effect = 0.499999988824
+shader_parameter/twinkle_speed = 0.3
+shader_parameter/pixelate_enabled = false
+shader_parameter/pixelate_count = 100.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpjx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ghtnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_u4psi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_n61jp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_l202w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_l07tl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_c5ysb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_op4m6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_03idh"]
+frequency = 0.1001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fq84s"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_03idh")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hmor5"]
+frequency = 0.165
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3y3o4"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_hmor5")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iatt5"]
+shader = ExtResource("8_ukjuh")
+shader_parameter/mask_texture = ExtResource("9_spt7h")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_fq84s")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_3y3o4")
+shader_parameter/scroll1 = Vector2(0.01, 0.005)
+shader_parameter/scroll2 = Vector2(-0.01, -0.005)
+shader_parameter/distortion_strength = -0.01199995307000001
+shader_parameter/tone_color = Color(1, 1, 1, 0.4627451)
+shader_parameter/top_color = Color(0.1882353, 0.80784315, 0.92156863, 0.44313726)
+shader_parameter/light_start = 0.4210000199975
+shader_parameter/light_end = 0.62400002964
+
+[node name="BaseBirdWatching" unique_id=1728431069 instance=ExtResource("1_0u3o4")]
+
+[node name="CanvasGroup" parent="CanvasLayer-3" parent_id_path=PackedInt32Array(424427643) index="0" unique_id=1544375683]
+material = SubResource("ShaderMaterial_jvllu")
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer-3/CanvasGroup" index="0" unique_id=892942877]
+position = Vector2(960, 540)
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Node2D" index="0" unique_id=1886910939]
+texture = ExtResource("3_tegpt")
+
+[node name="NightSky" type="ColorRect" parent="CanvasLayer-3/CanvasGroup/Node2D" index="1" unique_id=1595322158]
+visible = false
+material = SubResource("ShaderMaterial_bp18d")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clouds" type="Node2D" parent="CanvasLayer-3/CanvasGroup/Node2D" index="2" unique_id=389623946]
+
+[node name="Cloud_01" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Node2D/Clouds" index="0" unique_id=1483874474]
+position = Vector2(-162, -453)
+texture = ExtResource("5_jvllu")
+script = ExtResource("6_1ey4f")
+min_scale = 0.8
+max_scale = 1.2
+
+[node name="Cloud_02" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Node2D/Clouds" index="1" unique_id=950839907]
+position = Vector2(536, -328)
+texture = ExtResource("7_rbq6h")
+script = ExtResource("6_1ey4f")
+min_scale = 0.8
+max_scale = 1.2
+
+[node name="Environment" type="Node2D" parent="CanvasLayer-3/CanvasGroup/Node2D" index="3" unique_id=1454455194]
+position = Vector2(1920, 1080)
+
+[node name="Shader" type="Node2D" parent="CanvasLayer-3/CanvasGroup/Node2D/Environment" index="0" unique_id=1994418868]
+
+[node name="CanvasGroup" parent="CanvasLayer-2" parent_id_path=PackedInt32Array(233039880) index="0" unique_id=1562478865]
+material = SubResource("ShaderMaterial_jvllu")
+
+[node name="Midground_Far" type="Sprite2D" parent="CanvasLayer-2/CanvasGroup" index="0" unique_id=1283662727]
+position = Vector2(960, 540)
+texture = ExtResource("11_u270u")
+
+[node name="CanvasGroup" parent="CanvasLayer-1" parent_id_path=PackedInt32Array(778633630) index="0" unique_id=1797850078]
+material = SubResource("ShaderMaterial_jvllu")
+
+[node name="Midground_Close" type="Sprite2D" parent="CanvasLayer-1/CanvasGroup" index="0" unique_id=1854377209]
+position = Vector2(960, 540)
+texture = ExtResource("12_c35dd")
+
+[node name="CanvasGroup" parent="CanvasLayer0" parent_id_path=PackedInt32Array(1651493334) index="0" unique_id=989673233]
+material = SubResource("ShaderMaterial_jvllu")
+
+[node name="Waterfall" type="AnimatedSprite2D" parent="CanvasLayer0/CanvasGroup" index="0" unique_id=524115644]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_rpjx3")
+autoplay = "default"
+
+[node name="VFX" type="Node2D" parent="CanvasLayer0/CanvasGroup" index="1" unique_id=189042188]
+
+[node name="Firefly" parent="CanvasLayer0/CanvasGroup/VFX" index="0" unique_id=1928004762 instance=ExtResource("20_o45xt")]
+position = Vector2(393, 872)
+
+[node name="Shader_Water" type="Sprite2D" parent="CanvasLayer0/CanvasGroup" index="2" unique_id=901566569]
+visible = false
+material = SubResource("ShaderMaterial_iatt5")
+position = Vector2(960.00006, 548.00006)
+scale = Vector2(15.000003, 8.479999)
+texture = ExtResource("10_itofr")
+
+[node name="CanvasGroup" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="0" unique_id=14983282]
+material = SubResource("ShaderMaterial_jvllu")
+
+[node name="Foreground" type="Sprite2D" parent="CanvasLayer1/CanvasGroup" index="0" unique_id=913075410]
+position = Vector2(960, 540)
+texture = ExtResource("21_wv3o6")
+
+[node name="CanvasGroup" parent="CanvasLayer2" parent_id_path=PackedInt32Array(43520109) index="0" unique_id=482891979]
+material = SubResource("ShaderMaterial_jvllu")
+
+[node name="CanvasGroup" parent="CanvasLayer3" parent_id_path=PackedInt32Array(329065854) index="0" unique_id=344384017]
+material = SubResource("ShaderMaterial_jvllu")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="7" unique_id=2010402381]
+position = Vector2(2880, 1620)
+color = Color(0.444802, 0.5760781, 0.89368165, 1)
