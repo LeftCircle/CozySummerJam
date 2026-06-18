@@ -10,6 +10,62 @@ script = ExtResource("2_0jiuk")
 speed = 250
 metadata/_custom_type_script = "uid://cd0b8pkhxyk3e"
 
+[sub_resource type="Animation" id="Animation_u3rx3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_qr7cc"]
+resource_name = "adjust_zoom"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.215, -0.015000001, -0.035833336, 0, 0, 1, -0.15166667, 0.03583334, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.215, -0.015000001, -0.035833336, 0, 0, 1, -0.15166667, 0.03583334, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3rx3"]
+_data = {
+&"RESET": SubResource("Animation_u3rx3"),
+&"adjust_zoom": SubResource("Animation_qr7cc")
+}
+
 [node name="Camera" type="CharacterBody2D" unique_id=682986111]
 script = ExtResource("1_6m2n3")
 movement = SubResource("Resource_qr7cc")
@@ -18,8 +74,11 @@ movement = SubResource("Resource_qr7cc")
 texture = ExtResource("1_xejhd")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2084590571]
-zoom = Vector2(2.51, 2.51)
+zoom = Vector2(1.185, 1.185)
 
 [node name="InputProcessor" type="Node" parent="." unique_id=620030994]
 script = ExtResource("4_qr7cc")
 metadata/_custom_type_script = "uid://ofcpyo2xtefe"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=602278814]
+libraries/ = SubResource("AnimationLibrary_u3rx3")

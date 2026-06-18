@@ -261,8 +261,7 @@ shader_parameter/strength = 0.0
 shader_parameter/sample_power = 4
 shader_parameter/is_canvas_group = true
 
-[node name="BaseBirdWatching" unique_id=1728431069 node_paths=PackedStringArray("cl", "sprite_for_img", "camera") instance=ExtResource("1_8y4n4")]
-cl = NodePath("CanvasLayer0")
+[node name="BaseBirdWatching" unique_id=1728431069 node_paths=PackedStringArray("sprite_for_img", "camera") instance=ExtResource("1_8y4n4")]
 sprite_for_img = NodePath("SubViewportContainer/SubViewport/Sprite2D")
 camera = NodePath("Camera2D")
 
