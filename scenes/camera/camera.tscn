@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c5vjxaji5cqnd"]
+
+[ext_resource type="Script" uid="uid://d3p37jxyag7p8" path="res://scenes/camera/camera.gd" id="1_6m2n3"]
+[ext_resource type="Texture2D" uid="uid://bj0a8o6s8px8s" path="res://assets/camera/reticle.png" id="1_xejhd"]
+[ext_resource type="Script" uid="uid://cd0b8pkhxyk3e" path="res://scenes/characters/resources/movement.gd" id="2_0jiuk"]
+[ext_resource type="Script" uid="uid://ofcpyo2xtefe" path="res://scenes/characters/player/components/input_processor.gd" id="4_qr7cc"]
+
+[sub_resource type="Resource" id="Resource_qr7cc"]
+script = ExtResource("2_0jiuk")
+speed = 250
+metadata/_custom_type_script = "uid://cd0b8pkhxyk3e"
+
+[node name="Camera" type="CharacterBody2D" unique_id=682986111]
+script = ExtResource("1_6m2n3")
+movement = SubResource("Resource_qr7cc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=689160153]
+texture = ExtResource("1_xejhd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2084590571]
+zoom = Vector2(2.51, 2.51)
+
+[node name="InputProcessor" type="Node" parent="." unique_id=620030994]
+script = ExtResource("4_qr7cc")
+metadata/_custom_type_script = "uid://ofcpyo2xtefe"
