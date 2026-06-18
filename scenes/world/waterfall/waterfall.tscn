@@ -64,7 +64,7 @@ animations = [{
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lb434"]
 frequency = 0.1001
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fq84s"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rh3p3"]
 width = 256
 height = 256
 noise = SubResource("FastNoiseLite_lb434")
@@ -73,7 +73,7 @@ seamless = true
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_r00gd"]
 frequency = 0.165
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3y3o4"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gavse"]
 width = 256
 height = 256
 noise = SubResource("FastNoiseLite_r00gd")
@@ -82,8 +82,8 @@ seamless = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jmujv"]
 shader = ExtResource("15_oyxbo")
 shader_parameter/mask_texture = ExtResource("16_8pqiw")
-shader_parameter/noise1 = SubResource("NoiseTexture2D_fq84s")
-shader_parameter/noise2 = SubResource("NoiseTexture2D_3y3o4")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_rh3p3")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_gavse")
 shader_parameter/scroll1 = Vector2(0.01, 0.005)
 shader_parameter/scroll2 = Vector2(-0.01, -0.005)
 shader_parameter/distortion_strength = -0.01199995307000001
@@ -101,7 +101,6 @@ position = Vector2(960, 540)
 texture = ExtResource("1_qgqqr")
 
 [node name="NightSky" type="ColorRect" parent="Scenes" unique_id=621177262]
-visible = false
 material = SubResource("ShaderMaterial_gavse")
 custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 8
@@ -149,8 +148,7 @@ max_scale = 1.2
 position = Vector2(1920, 1080)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Environment" unique_id=1481887724]
-visible = false
-color = Color(0.3244561, 0.42578465, 0.67224294, 1)
+color = Color(0.444802, 0.5760781, 0.89368165, 1)
 
 [node name="Shader" type="Node2D" parent="Environment" unique_id=1752521035]
 
@@ -161,7 +159,6 @@ scale = Vector2(15.000003, 8.479999)
 texture = ExtResource("17_tm076")
 
 [node name="VFX" type="Node2D" parent="Environment" unique_id=738438946]
-visible = false
 
 [node name="Firefly" parent="Environment/VFX" unique_id=1928004762 instance=ExtResource("18_tm076")]
 position = Vector2(-1506, -200)
