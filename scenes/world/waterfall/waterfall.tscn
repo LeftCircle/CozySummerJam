@@ -148,7 +148,6 @@ max_scale = 1.2
 position = Vector2(1920, 1080)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Environment" unique_id=1481887724]
-visible = false
 color = Color(0.444802, 0.5760781, 0.89368165, 1)
 
 [node name="Shader" type="Node2D" parent="Environment" unique_id=1752521035]

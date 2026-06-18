@@ -70,29 +70,29 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_03idh"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1ey4f"]
 frequency = 0.1001
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fq84s"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rh3p3"]
 width = 256
 height = 256
-noise = SubResource("FastNoiseLite_03idh")
+noise = SubResource("FastNoiseLite_1ey4f")
 seamless = true
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_hmor5"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rbq6h"]
 frequency = 0.165
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3y3o4"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gavse"]
 width = 256
 height = 256
-noise = SubResource("FastNoiseLite_hmor5")
+noise = SubResource("FastNoiseLite_rbq6h")
 seamless = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iatt5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukjuh"]
 shader = ExtResource("8_ukjuh")
 shader_parameter/mask_texture = ExtResource("9_spt7h")
-shader_parameter/noise1 = SubResource("NoiseTexture2D_fq84s")
-shader_parameter/noise2 = SubResource("NoiseTexture2D_3y3o4")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_rh3p3")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_gavse")
 shader_parameter/scroll1 = Vector2(0.01, 0.005)
 shader_parameter/scroll2 = Vector2(-0.01, -0.005)
 shader_parameter/distortion_strength = -0.01199995307000001
@@ -144,11 +144,6 @@ script = ExtResource("6_1ey4f")
 min_scale = 0.8
 max_scale = 1.2
 
-[node name="Environment" type="Node2D" parent="CanvasLayer-3/CanvasGroup/Node2D" index="3" unique_id=1454455194]
-position = Vector2(1920, 1080)
-
-[node name="Shader" type="Node2D" parent="CanvasLayer-3/CanvasGroup/Node2D/Environment" index="0" unique_id=1994418868]
-
 [node name="CanvasGroup" parent="CanvasLayer-2" parent_id_path=PackedInt32Array(233039880) index="0" unique_id=1562478865]
 material = SubResource("ShaderMaterial_jvllu")
 
@@ -176,10 +171,10 @@ autoplay = "default"
 [node name="Firefly" parent="CanvasLayer0/CanvasGroup/VFX" index="0" unique_id=1928004762 instance=ExtResource("20_o45xt")]
 position = Vector2(393, 872)
 
-[node name="Shader_Water" type="Sprite2D" parent="CanvasLayer0/CanvasGroup" index="2" unique_id=901566569]
-visible = false
-material = SubResource("ShaderMaterial_iatt5")
-position = Vector2(960.00006, 548.00006)
+[node name="Shader_Water" type="Sprite2D" parent="CanvasLayer0/CanvasGroup" index="2" unique_id=1602343183]
+top_level = true
+material = SubResource("ShaderMaterial_ukjuh")
+position = Vector2(960, 540)
 scale = Vector2(15.000003, 8.479999)
 texture = ExtResource("10_itofr")
 
@@ -194,6 +189,7 @@ texture = ExtResource("21_wv3o6")
 material = SubResource("ShaderMaterial_jvllu")
 
 [node name="CanvasGroup" parent="CanvasLayer3" parent_id_path=PackedInt32Array(329065854) index="0" unique_id=344384017]
+self_modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_jvllu")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="7" unique_id=2010402381]
