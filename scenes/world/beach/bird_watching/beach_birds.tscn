@@ -8,7 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://bjb5smk0kyngp" path="res://screenshot.png" id="7_jxjwu"]
 [ext_resource type="Texture2D" uid="uid://csl1vdyml2agb" path="res://FullScreenshot.png" id="7_wasla"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4y7c"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jxjwu"]
+resource_local_to_scene = true
+shader = ExtResource("3_0on32")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wasla"]
 texture = ExtResource("2_o0xxn")
 0:0/0 = 0
 1:0/0 = 0
@@ -246,7 +253,7 @@ texture = ExtResource("2_o0xxn")
 17:12/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0on32"]
-sources/0 = SubResource("TileSetAtlasSource_b4y7c")
+sources/0 = SubResource("TileSetAtlasSource_wasla")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wcrdk"]
 shader = ExtResource("3_0on32")
@@ -259,10 +266,19 @@ cl = NodePath("CanvasLayer0")
 sprite_for_img = NodePath("SubViewportContainer/SubViewport/Sprite2D")
 camera = NodePath("Camera2D")
 
+[node name="CanvasGroup" parent="CanvasLayer-3" parent_id_path=PackedInt32Array(424427643) index="0" unique_id=1544375683]
+material = SubResource("ShaderMaterial_jxjwu")
+
+[node name="CanvasGroup" parent="CanvasLayer-2" parent_id_path=PackedInt32Array(233039880) index="0" unique_id=1562478865]
+material = SubResource("ShaderMaterial_jxjwu")
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="CanvasLayer-1" parent_id_path=PackedInt32Array(778633630) index="0" unique_id=698762169]
 position = Vector2(-17.777779, 124.44445)
 tile_map_data = PackedByteArray("AAATAAAAAAAJAAQAAAAUAAEAAAAJAAMAAAAVAAEAAAAIAAQAAAATAP7/AAAIAAMAAAATAP//AAAIAAQAAAAUAP//AAAIAAMAAAAUAAAAAAAIAAQAAAAVAP//AAAJAAMAAAAVAAAAAAAIAAMAAAAWAP//AAAIAAMAAAAWAAAAAAAIAAQAAAA=")
 tile_set = SubResource("TileSet_0on32")
+
+[node name="CanvasGroup" parent="CanvasLayer-1" parent_id_path=PackedInt32Array(778633630) index="1" unique_id=1797850078]
+material = SubResource("ShaderMaterial_jxjwu")
 
 [node name="CanvasLayer0" parent="." index="3" unique_id=1651493334]
 script = ExtResource("3_jxjwu")
@@ -272,14 +288,26 @@ position = Vector2(31, 145)
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAABAAAAAAABAAIAAAACAAAAAAABAAIAAAADAAAAAAABAAIAAAAEAAAAAAABAAIAAAAFAAAAAAABAAIAAAAGAAAAAAABAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAABAAIAAAAKAAAAAAABAAIAAAALAAAAAAABAAIAAAAMAAAAAAABAAIAAAANAAAAAAABAAIAAAAOAAAAAAABAAIAAAAPAAAAAAABAAIAAAAQAAAAAAABAAIAAAARAAAAAAABAAIAAAASAAAAAAABAAIAAAATAAAAAAABAAIAAAAUAAAAAAABAAIAAAAVAAAAAAABAAIAAAAAAAEAAAABAAMAAAABAAEAAAABAAQAAAACAAEAAAABAAMAAAADAAEAAAABAAQAAAAEAAEAAAABAAMAAAAFAAEAAAABAAMAAAAGAAEAAAABAAQAAAAHAAEAAAABAAMAAAAIAAEAAAABAAMAAAAJAAEAAAABAAMAAAAKAAEAAAABAAQAAAALAAEAAAABAAMAAAAMAAEAAAABAAMAAAANAAEAAAABAAMAAAAOAAEAAAABAAMAAAAPAAEAAAABAAQAAAAQAAEAAAABAAMAAAARAAEAAAABAAMAAAASAAEAAAABAAQAAAATAAEAAAABAAMAAAAUAAEAAAABAAMAAAAVAAEAAAABAAMAAAAVAAIAAAABAAMAAAAUAAIAAAABAAQAAAATAAIAAAABAAQAAAASAAIAAAABAAMAAAARAAIAAAABAAQAAAAQAAIAAAABAAQAAAAPAAIAAAABAAQAAAAOAAIAAAABAAQAAAANAAIAAAABAAQAAAAMAAIAAAABAAMAAAALAAIAAAABAAQAAAAKAAIAAAABAAQAAAAJAAIAAAABAAQAAAAIAAIAAAABAAQAAAAHAAIAAAABAAQAAAAGAAIAAAABAAQAAAAFAAIAAAABAAQAAAAEAAIAAAABAAMAAAADAAIAAAABAAQAAAACAAIAAAABAAQAAAABAAIAAAABAAQAAAAAAAIAAAABAAQAAAAWAAAAAAACAAIAAAAWAAEAAAACAAMAAAAWAAIAAAACAAQAAAD//wEAAAAAAAMAAAD//wIAAAAAAAQAAAD//wAAAAAAAAIAAAAYAAUAAAABAAYAAAAZAAUAAAABAAYAAAAaAAUAAAABAAYAAAAaAAYAAAABAAYAAAAaAAcAAAABAAYAAAAZAAcAAAABAAYAAAAYAAcAAAABAAYAAAAYAAYAAAABAAYAAAAaAPj/AAAGAAYAAAAaAPn/AAAGAAYAAAAaAPr/AAAGAAYAAAAZAPn/AAAGAAYAAAAbAPn/AAAGAAYAAAD//wYAAAAQAAUAAAAAAAYAAAAQAAUAAAABAAYAAAAQAAUAAAACAAYAAAAQAAUAAAADAAYAAAAQAAUAAAABAAQAAAAQAAUAAAABAAUAAAAQAAUAAAABAAcAAAAQAAUAAAABAPj/AAAKAAsAAAABAPn/AAAKAAsAAAABAPr/AAAKAAsAAAD///n/AAAKAAsAAAAAAPn/AAAKAAsAAAACAPn/AAAKAAsAAAADAPn/AAAKAAsAAAAOAPj/AAAFAAsAAAAOAPn/AAAFAAsAAAAOAPr/AAAFAAsAAAANAPn/AAAFAAsAAAAPAPn/AAAFAAsAAAANAAQAAAADAAsAAAANAAUAAAADAAsAAAANAAYAAAADAAsAAAANAAcAAAADAAsAAAAMAAUAAAADAAsAAAAOAAUAAAADAAsAAAAPAAUAAAADAAsAAAALAAUAAAADAAsAAAAMAP//AAAIAAsAAAAMAP7/AAAIAAoAAAANAP//AAAJAAsAAAANAP7/AAAJAAoAAAA=")
 tile_set = SubResource("TileSet_0on32")
 
-[node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="0" unique_id=2031732253]
+[node name="CanvasGroup" parent="CanvasLayer0" index="1" unique_id=989673233]
+material = SubResource("ShaderMaterial_jxjwu")
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="0" unique_id=2031732253]
 material = SubResource("ShaderMaterial_wcrdk")
 position = Vector2(186.36363, 191.81818)
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="CanvasLayer1/CanvasGroup" index="0" unique_id=1909536564]
+[node name="TileMapLayer2" type="TileMapLayer" parent="CanvasLayer1/CanvasGroup2" index="0" unique_id=1909536564]
 position = Vector2(-158.18181, -10.90909)
 tile_map_data = PackedByteArray("AAATAAAAAAAJAAQAAAAUAAEAAAAJAAMAAAAVAAEAAAAIAAQAAAATAP7/AAAIAAMAAAATAP//AAAIAAQAAAAUAP//AAAIAAMAAAAUAAAAAAAIAAQAAAAVAP//AAAJAAMAAAAVAAAAAAAIAAMAAAAWAP//AAAIAAMAAAAWAAAAAAAIAAQAAAA=")
 tile_set = SubResource("TileSet_0on32")
+
+[node name="CanvasGroup" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="1" unique_id=14983282]
+material = SubResource("ShaderMaterial_jxjwu")
+
+[node name="CanvasGroup" parent="CanvasLayer2" parent_id_path=PackedInt32Array(43520109) index="0" unique_id=482891979]
+material = SubResource("ShaderMaterial_jxjwu")
+
+[node name="CanvasGroup" parent="CanvasLayer3" parent_id_path=PackedInt32Array(329065854) index="0" unique_id=344384017]
+material = SubResource("ShaderMaterial_jxjwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="7" unique_id=1870722033]
 modulate = Color(1, 0, 0, 1)
