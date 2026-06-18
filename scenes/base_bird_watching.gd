@@ -4,6 +4,15 @@ extends Node2D
 @onready var svc := $SubViewportContainer
 @export var sprite_for_img : Sprite2D
 @export var camera : Camera2D
+@export var canvas_groups : Array[CanvasGroup] = []
+
+
+var current_layer = 0
+
+func _ready():
+	_on_level_changed(0)
+	var mat : Material = $CanvasLayer0/CanvasGroup.material
+	mat.set("shader_parameter/strength", 0)
 
 func _process(delta):
 	#global_position = get_global_mouse_position()
@@ -48,3 +57,15 @@ func take_screenshoot() -> void:
 	img.save_png("res://screenshot.png")
 	sub_viewport.queue_free()
 	print("Screenshot taken")
+
+func _on_level_changed(change : int) -> void:
+	current_layer += change
+	current_layer = clampi(current_layer, -3, 3)
+	for i in range(-3, 4):
+		var dist_from_current = abs(current_layer - i)
+		var cg : CanvasGroup = canvas_groups[i + 3]
+		if i > 0 and dist_from_current > 0:
+			dist_from_current += i
+		cg.material.set("shader_parameter/strength", dist_from_current * 5)
+		print("Layer: ", i, " Blur = ", dist_from_current * 5)
+	
