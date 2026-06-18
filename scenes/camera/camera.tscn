@@ -74,7 +74,7 @@ movement = SubResource("Resource_qr7cc")
 texture = ExtResource("1_xejhd")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2084590571]
-zoom = Vector2(1.185, 1.185)
+zoom = Vector2(1.39, 1.39)
 
 [node name="InputProcessor" type="Node" parent="." unique_id=620030994]
 script = ExtResource("4_qr7cc")
