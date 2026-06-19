@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://dqyit45kar5yf"]
+
+[ext_resource type="PackedScene" uid="uid://boaoiscsocj8u" path="res://scenes/base_bird_watching.tscn" id="1_6yc6j"]
+[ext_resource type="Shader" uid="uid://betupunc464aq" path="res://assets/shaders/canvas_blur.gdshader" id="2_bhjt7"]
+[ext_resource type="Script" uid="uid://d1btu5lj7oqwx" path="res://scenes/levels/mountainTop/main_mountaintTop.gd" id="2_wth0c"]
+[ext_resource type="Texture2D" uid="uid://dj4jnca6apwyh" path="res://assets/levels/mountainTop/mountainTopLayer_0.png" id="3_0763p"]
+[ext_resource type="Shader" uid="uid://cd3p8rkucit1j" path="res://assets/shaders/mountainTop/mountainTop_water.gdshader" id="3_nucdg"]
+[ext_resource type="Texture2D" uid="uid://b6h2nbt0fns0y" path="res://assets/levels/mountainTop/mountainTopLayer_1.png" id="4_nucdg"]
+[ext_resource type="Texture2D" uid="uid://ltp6tec33bnh" path="res://assets/levels/mountainTop/mountainTopLayer_cloud1.png" id="5_6eubv"]
+[ext_resource type="Script" uid="uid://q3g6edgw5f0y" path="res://scenes/levels/common/cloud.gd" id="6_slcre"]
+[ext_resource type="Texture2D" uid="uid://bc8xwu40li80h" path="res://assets/shaders/mountainTop/mountainTop_water_mask.png" id="6_wth0c"]
+[ext_resource type="Texture2D" uid="uid://b0nw3e5fmxaq5" path="res://assets/levels/mountainTop/mountainTopLayer_cloud2.png" id="7_wth0c"]
+[ext_resource type="Texture2D" uid="uid://uorryg83q2qy" path="res://assets/levels/mountainTop/mountainTopLayer_cloud3.png" id="8_5p01n"]
+[ext_resource type="Texture2D" uid="uid://dsq6dp8h1nbao" path="res://assets/levels/mountainTop/mountainTopLayer_2.png" id="9_ej4yj"]
+[ext_resource type="Texture2D" uid="uid://dvrgeowme2use" path="res://assets/levels/mountainTop/mountainTopLayer_3.png" id="12_slcre"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5p01n"]
+resource_local_to_scene = true
+shader = ExtResource("2_bhjt7")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d85di"]
+frequency = 0.0008
+fractal_octaves = 8
+fractal_weighted_strength = 0.13
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i5jgx"]
+noise = SubResource("FastNoiseLite_d85di")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mp8ky"]
+frequency = 0.1061
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wlvav"]
+noise = SubResource("FastNoiseLite_mp8ky")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_slcre"]
+shader = ExtResource("3_nucdg")
+shader_parameter/mask_texture = ExtResource("6_wth0c")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_i5jgx")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_wlvav")
+shader_parameter/scroll1 = Vector2(0.005, 0)
+shader_parameter/scroll2 = Vector2(-0.005, 0)
+shader_parameter/distortion_strength = 0.00500004773750006
+shader_parameter/tone_color = Color(1, 1, 1, 1)
+shader_parameter/top_color = Color(0.833649, 0.7833133, 1, 1)
+shader_parameter/light_start = 0.275
+shader_parameter/light_end = 0.4970000236075
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ej4yj"]
+resource_local_to_scene = true
+shader = ExtResource("2_bhjt7")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d85di"]
+resource_local_to_scene = true
+shader = ExtResource("2_bhjt7")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i5jgx"]
+resource_local_to_scene = true
+shader = ExtResource("2_bhjt7")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mp8ky"]
+resource_local_to_scene = true
+shader = ExtResource("2_bhjt7")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wlvav"]
+resource_local_to_scene = true
+shader = ExtResource("2_bhjt7")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cthrq"]
+resource_local_to_scene = true
+shader = ExtResource("2_bhjt7")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[node name="MountainTop" unique_id=1728431069 instance=ExtResource("1_6yc6j")]
+script = ExtResource("2_wth0c")
+
+[node name="CanvasGroup" parent="CanvasLayer-3" parent_id_path=PackedInt32Array(424427643) index="0" unique_id=1544375683]
+material = SubResource("ShaderMaterial_5p01n")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup" index="0" unique_id=1496371261]
+texture = ExtResource("3_0763p")
+
+[node name="Clouds_Night" type="Node2D" parent="CanvasLayer-3/CanvasGroup" index="1" unique_id=525796157 groups=["Group_Night"]]
+visible = false
+
+[node name="Cloud01" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds_Night" index="0" unique_id=170747662]
+position = Vector2(1510, 254.2857)
+texture = ExtResource("5_6eubv")
+
+[node name="Cloud02" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds_Night" index="1" unique_id=1453653359]
+position = Vector2(770.0001, 338.57144)
+scale = Vector2(3, 3)
+texture = ExtResource("7_wth0c")
+
+[node name="Cloud03" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds_Night" index="2" unique_id=1716203245]
+position = Vector2(-345.7141, 271.42856)
+scale = Vector2(2, 2)
+texture = ExtResource("8_5p01n")
+
+[node name="Cloud04" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds_Night" index="3" unique_id=317344726]
+position = Vector2(-1471.4286, 374.2857)
+scale = Vector2(2, 2)
+texture = ExtResource("8_5p01n")
+flip_h = true
+
+[node name="Sea" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup" index="2" unique_id=416612509]
+texture = ExtResource("4_nucdg")
+
+[node name="Shader_Water" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup" index="3" unique_id=1826495650]
+top_level = true
+material = SubResource("ShaderMaterial_slcre")
+texture = ExtResource("4_nucdg")
+
+[node name="Clouds_Day" type="Node2D" parent="CanvasLayer-3/CanvasGroup" index="4" unique_id=1920076797 groups=["Group_Day"]]
+
+[node name="Cloud01" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds_Day" index="0" unique_id=264187353]
+position = Vector2(1060, -528.5715)
+texture = ExtResource("5_6eubv")
+script = ExtResource("6_slcre")
+max_offset = 10.0
+
+[node name="Cloud02" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds_Day" index="1" unique_id=899616988]
+position = Vector2(-68.571434, 101.42858)
+texture = ExtResource("7_wth0c")
+script = ExtResource("6_slcre")
+min_scale = 1.0
+max_scale = 1.3
+
+[node name="Cloud03" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds_Day" index="2" unique_id=1715984828]
+position = Vector2(1562.857, -41.428566)
+texture = ExtResource("8_5p01n")
+script = ExtResource("6_slcre")
+min_scale = 0.8
+max_scale = 1.0
+max_offset = 5.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer-3/CanvasGroup" index="5" unique_id=1679866734 groups=["Group_Night"]]
+visible = false
+color = Color(0.5257574, 0.5154088, 0.6547122, 1)
+
+[node name="CanvasGroup" parent="CanvasLayer-2" parent_id_path=PackedInt32Array(233039880) index="0" unique_id=1562478865]
+material = SubResource("ShaderMaterial_ej4yj")
+
+[node name="Tree" type="Sprite2D" parent="CanvasLayer-2/CanvasGroup" index="0" unique_id=1669148339]
+texture = ExtResource("9_ej4yj")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer-2/CanvasGroup" index="1" unique_id=896519515 groups=["Group_Night"]]
+visible = false
+color = Color(0.5257574, 0.5154088, 0.6547122, 1)
+
+[node name="CanvasGroup" parent="CanvasLayer-1" parent_id_path=PackedInt32Array(778633630) index="0" unique_id=1797850078]
+material = SubResource("ShaderMaterial_d85di")
+
+[node name="Grass" type="Sprite2D" parent="CanvasLayer-1/CanvasGroup" index="0" unique_id=2139791446]
+texture = ExtResource("12_slcre")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer-1" parent_id_path=PackedInt32Array(778633630) index="1" unique_id=1137376031 groups=["Group_Night"]]
+visible = false
+color = Color(0.5257574, 0.5154088, 0.6547122, 1)
+
+[node name="CanvasGroup" parent="CanvasLayer0" parent_id_path=PackedInt32Array(1651493334) index="0" unique_id=989673233]
+material = SubResource("ShaderMaterial_i5jgx")
+
+[node name="CanvasGroup" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="0" unique_id=14983282]
+material = SubResource("ShaderMaterial_mp8ky")
+
+[node name="CanvasGroup" parent="CanvasLayer2" parent_id_path=PackedInt32Array(43520109) index="0" unique_id=482891979]
+material = SubResource("ShaderMaterial_wlvav")
+
+[node name="CanvasGroup" parent="CanvasLayer3" parent_id_path=PackedInt32Array(329065854) index="0" unique_id=344384017]
+material = SubResource("ShaderMaterial_cthrq")
