@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://be5takuic8cgf"]
+
+[ext_resource type="Texture2D" uid="uid://cthtcff3fn1qj" path="res://assets/birds/bigBird/bigBird1.png" id="1_lkcbi"]
+[ext_resource type="Texture2D" uid="uid://4jx8mp1qp364" path="res://assets/birds/bigBird/bigBird2.png" id="2_owcok"]
+[ext_resource type="Texture2D" uid="uid://bhuixipnqsh2g" path="res://assets/birds/bigBird/bigBird3.png" id="3_o7vpg"]
+[ext_resource type="Texture2D" uid="uid://dn8v2qkgv74f5" path="res://assets/birds/bigBird/bigBird4.png" id="4_aix00"]
+[ext_resource type="Texture2D" uid="uid://8q74nk7y1wjv" path="res://assets/birds/bigBird/bigBird5.png" id="5_65mr2"]
+[ext_resource type="Texture2D" uid="uid://dahhv0hvrsgyu" path="res://assets/birds/bigBird/bigBird6.png" id="6_3a2mw"]
+[ext_resource type="Texture2D" uid="uid://b1d7qno5l4rkr" path="res://assets/birds/bigBird/bigBird7.png" id="7_10aag"]
+[ext_resource type="Texture2D" uid="uid://c0n2epgwpeigc" path="res://assets/birds/bigBird/bigBird8.png" id="8_rv3kq"]
+[ext_resource type="Texture2D" uid="uid://dx5cbug723txx" path="res://assets/birds/bigBird/bigBird9.png" id="9_nhcne"]
+[ext_resource type="Texture2D" uid="uid://cnd6q7iske4fh" path="res://assets/birds/bigBird/bigBird10.png" id="10_njyfq"]
+[ext_resource type="Texture2D" uid="uid://c40h26uw0xn3w" path="res://assets/birds/bigBird/bigBird11.png" id="11_gb51a"]
+[ext_resource type="Texture2D" uid="uid://cy7jibhhqtyj" path="res://assets/birds/bigBird/bigBird12.png" id="12_osvaj"]
+[ext_resource type="Texture2D" uid="uid://df7e7atbq4ust" path="res://assets/birds/bigBird/bigBird13.png" id="13_uk2e7"]
+[ext_resource type="Texture2D" uid="uid://cjl11eqn23yyn" path="res://assets/birds/bigBird/bigBird14.png" id="14_wcq8x"]
+[ext_resource type="Texture2D" uid="uid://cguimoyqnevnx" path="res://assets/birds/bigBird/bigBird15.png" id="15_tdpbn"]
+[ext_resource type="Texture2D" uid="uid://b2ppq7ruc1cwt" path="res://assets/birds/bigBird/bigBird16.png" id="16_wwxxb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uovo2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lkcbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_owcok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o7vpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aix00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_65mr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3a2mw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_10aag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rv3kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nhcne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_njyfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gb51a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_osvaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_uk2e7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wcq8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tdpbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wwxxb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FlamingoTree" type="AnimatedSprite2D" unique_id=587248743]
+sprite_frames = SubResource("SpriteFrames_uovo2")
