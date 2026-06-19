@@ -575,9 +575,6 @@ follow_viewport_enabled = true
 
 [node name="Camera" parent="CanvasLayer" index="0" unique_id=682986111 instance=ExtResource("22_1ey4f")]
 
-[node name="PhotoReview" parent="CanvasLayer/Camera/Control" parent_id_path=PackedInt32Array(682986111, 1434911978) index="0" unique_id=176465934]
-visible = false
-
 [node name="SubViewportForPhotoCapture" type="SubViewportContainer" parent="." index="9" unique_id=1526029218]
 offset_left = 3296.0
 offset_right = 3808.0
@@ -596,5 +593,6 @@ region_filter_clip_enabled = true
 
 [connection signal="photo_captured" from="." to="CanvasLayer/Camera" method="_on_photo_captured"]
 [connection signal="take_photo" from="." to="CanvasLayer/Camera" method="_on_photo_taken"]
+[connection signal="zoom" from="CanvasLayer/Camera" to="." method="_on_level_changed"]
 
 [editable path="CanvasLayer/Camera"]

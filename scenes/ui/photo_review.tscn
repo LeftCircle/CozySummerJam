@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nhrrp"]
 shader = ExtResource("1_kb8xe")
-shader_parameter/blur_amount = 1.5
+shader_parameter/blur_amount = 2.0490000973275
 
 [node name="PhotoReview" type="Control" unique_id=176465934]
 layout_mode = 3
@@ -141,6 +141,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DescriptionContainer" type="VBoxContainer" parent="." unique_id=1152687338]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5477431
+anchor_top = 0.21141975
+anchor_right = 0.9751041
+anchor_bottom = 0.79811114
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="KeepButton" to="." method="_on_keep_button_pressed"]
 [connection signal="pressed" from="DiscardButton" to="." method="_on_discard_button_pressed"]

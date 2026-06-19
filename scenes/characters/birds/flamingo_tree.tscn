@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dh2y8bb8lnaa6"]
+
+[ext_resource type="PackedScene" uid="uid://cc33sbaa68tco" path="res://scenes/characters/base_bird.tscn" id="1_thjya"]
+[ext_resource type="SpriteFrames" uid="uid://sa3w5gjbmkf" path="res://scenes/characters/birds/flamingo_tree_frames.tres" id="2_olva8"]
+[ext_resource type="Script" uid="uid://jup7vqa0iu12" path="res://scenes/characters/birds/flamingo_tree.gd" id="2_xud68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xud68"]
+resource_local_to_scene = true
+size = Vector2(797.53754, 647)
+
+[node name="FlamingoTree" unique_id=1605855312 instance=ExtResource("1_thjya")]
+script = ExtResource("2_xud68")
+bird_name = "Flamingo Tree"
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1786639052) index="0" unique_id=1410104586]
+position = Vector2(1085.7688, 324.5)
+shape = SubResource("RectangleShape2D_xud68")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1003371704]
+sprite_frames = ExtResource("2_olva8")
+animation = &"stand"
+frame = 15

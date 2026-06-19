@@ -26,24 +26,25 @@ func _ready():
 func _process(delta):
 	#global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("take_photo"):
-		take_photo.emit()
-		await RenderingServer.frame_post_draw
-		#get_viewport().size = Vector2(48, 48)
-		var img = get_viewport().get_texture().get_image()
-		img.save_png("res://FullScreenshot.png")
-		var img_texture = ImageTexture.new()
-		img_texture = img_texture.create_from_image(img)
-	
-		sprite_for_img.texture = img_texture
-		# screen_width - (mouse_position * camera.zoom) - half_screen_width + half_frame_size
-		#sprite_for_img.position = screen_size - (get_global_mouse_position() * camera.zoom) - screen_size / 2.0
-		#sprite_for_img.position += photo_size / 2.0
-		
-		await RenderingServer.frame_post_draw
-		var photo : Image = sv.get_texture().get_image()
-		photo.save_png("res://Screenshot.png")
-		PhotoTracker.current_photo = photo
-		photo_captured.emit(photo)
+		#take_photo.emit()
+		#await RenderingServer.frame_post_draw
+		##get_viewport().size = Vector2(48, 48)
+		#var img = get_viewport().get_texture().get_image()
+		#img.save_png("res://FullScreenshot.png")
+		#var img_texture = ImageTexture.new()
+		#img_texture = img_texture.create_from_image(img)
+	#
+		#sprite_for_img.texture = img_texture
+		## screen_width - (mouse_position * camera.zoom) - half_screen_width + half_frame_size
+		##sprite_for_img.position = screen_size - (get_global_mouse_position() * camera.zoom) - screen_size / 2.0
+		##sprite_for_img.position += photo_size / 2.0
+		#
+		#await RenderingServer.frame_post_draw
+		#var photo : Image = sv.get_texture().get_image()
+		#photo.save_png("res://Screenshot.png")
+		#PhotoTracker.current_photo = photo
+		#photo_captured.emit(photo)
+		pass
 
 # Could clean it up following this function
 #func take_screenshoot() -> void:

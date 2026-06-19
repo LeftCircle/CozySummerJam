@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cc33sbaa68tco"]
+
+[ext_resource type="Script" uid="uid://dv8rv20lqoj8f" path="res://scenes/characters/base_bird.gd" id="1_yuojw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7paxu"]
+resource_local_to_scene = true
+
+[node name="BaseBird" type="Node2D" unique_id=1605855312]
+script = ExtResource("1_yuojw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1786639052]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1410104586]
+shape = SubResource("RectangleShape2D_7paxu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1003371704]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
