@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmx2it34krcc6" path="res://assets/levels/waterfall/waterfallLayer01.png" id="3_tegpt"]
 [ext_resource type="Shader" uid="uid://dj5tr01cfm3tp" path="res://assets/shaders/vfx_star.gdshader" id="4_sfgi6"]
 [ext_resource type="Texture2D" uid="uid://daderjelilnoi" path="res://assets/levels/waterfall/waterfallCloud01.png" id="5_jvllu"]
-[ext_resource type="Script" uid="uid://q3g6edgw5f0y" path="res://scenes/levels/waterfall/cloud.gd" id="6_1ey4f"]
+[ext_resource type="Script" uid="uid://q3g6edgw5f0y" path="res://scenes/levels/common/cloud.gd" id="6_1ey4f"]
 [ext_resource type="Texture2D" uid="uid://bcc5dtjasuuj2" path="res://assets/levels/waterfall/waterfallCloud02.png" id="7_rbq6h"]
 [ext_resource type="Shader" uid="uid://cwylhubbtfj4d" path="res://assets/shaders/waterfall_water/waterfall_water.gdshader" id="8_ukjuh"]
 [ext_resource type="Texture2D" uid="uid://w5xgwhdyi6mk" path="res://assets/shaders/waterfall_water/waterfall_water_shaderMask.png" id="9_spt7h"]

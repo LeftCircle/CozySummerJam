@@ -2,17 +2,16 @@ shader_type canvas_item;
 render_mode unshaded, blend_add;
 
 uniform sampler2D mask_texture;
-uniform vec2 mask_texel_size = vec2(0.004, 0.004); // 256x256 就差不多這樣
+uniform vec2 mask_texel_size = vec2(0.004, 0.004); 
 uniform vec4 glow_color : source_color = vec4(0.2, 0.8, 1.0, 1.0);
 
-uniform float body_strength = 2.5;   // 花本體亮度
-uniform float glow_strength = 6.0;   // 外圍光暈強度
-uniform float glow_radius = 18.0;    // 外圍擴散半徑
+uniform float body_strength = 2.5;   
+uniform float glow_strength = 6.0;   
+uniform float glow_radius = 18.0;   
 uniform int samples = 24;
 uniform int rings = 6;
 
 float mask_at(vec2 uv) {
-    // 如果你的 mask 是透明 PNG，改成 texture(mask_texture, uv).a
     return texture(mask_texture, uv).r;
 }
 
@@ -46,10 +45,7 @@ void fragment() {
         blurred = blur_sum / blur_count;
     }
 
-    // 整朵花本體發光
     float body = pow(center, 0.85) * body_strength;
-
-    // 外圍柔光
     float halo = max(blurred - center * 0.4, 0.0) * glow_strength;
 
     vec3 rgb = glow_color.rgb * (body + halo);

@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://betupunc464aq" path="res://assets/shaders/canvas_blur.gdshader" id="2_a5645"]
 [ext_resource type="Texture2D" uid="uid://cfq7muh48fkv1" path="res://assets/levels/beach/beachLayer1.png" id="3_nyvj0"]
 [ext_resource type="Texture2D" uid="uid://dtem6bgsduds5" path="res://assets/levels/beach/beachCloud_01.png" id="5_ifxsg"]
-[ext_resource type="Script" uid="uid://q3g6edgw5f0y" path="res://scenes/levels/waterfall/cloud.gd" id="6_l5yi1"]
+[ext_resource type="Script" uid="uid://q3g6edgw5f0y" path="res://scenes/levels/common/cloud.gd" id="6_l5yi1"]
 [ext_resource type="Texture2D" uid="uid://ckc8m8a4egei8" path="res://assets/levels/beach/beachCloud_02.png" id="7_8y6g4"]
 [ext_resource type="Texture2D" uid="uid://i485lur2bmdv" path="res://assets/levels/beach/beachCloud_03.png" id="8_i3g1m"]
 [ext_resource type="Texture2D" uid="uid://ds11oacaoa0kn" path="res://assets/vfx/Flare_small.PNG" id="8_nyvj0"]
@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bvigl64borwek" path="res://assets/shaders/beach_water/beach_seed_mask.png" id="28_l5yi1"]
 [ext_resource type="Texture2D" uid="uid://dtmv76tflpn3f" path="res://assets/shaders/beach_water/beach_flower_mask.png" id="29_ifxsg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kom3v"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l5yi1"]
 resource_local_to_scene = true
 shader = ExtResource("2_a5645")
 shader_parameter/strength = 0.0
@@ -139,7 +139,7 @@ shader_parameter/rings = 12
 [node name="BaseBirdWatching" unique_id=1728431069 instance=ExtResource("1_ggtre")]
 
 [node name="CanvasGroup" parent="CanvasLayer-3" parent_id_path=PackedInt32Array(424427643) index="0" unique_id=1544375683]
-material = SubResource("ShaderMaterial_kom3v")
+material = SubResource("ShaderMaterial_l5yi1")
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup" index="0" unique_id=435435528]
 texture = ExtResource("3_nyvj0")
@@ -197,7 +197,7 @@ texture_scale = 24.81
 color = Color(0.23917282, 0.56334, 0.744151, 1)
 
 [node name="CanvasGroup" parent="CanvasLayer-2" parent_id_path=PackedInt32Array(233039880) index="0" unique_id=1562478865]
-material = SubResource("ShaderMaterial_kom3v")
+material = SubResource("ShaderMaterial_l5yi1")
 
 [node name="Beach_Waves" type="AnimatedSprite2D" parent="CanvasLayer-2/CanvasGroup" index="0" unique_id=1221663415]
 sprite_frames = SubResource("SpriteFrames_v7ea0")
@@ -213,7 +213,7 @@ texture = ExtResource("24_tiotc")
 color = Color(0.23917282, 0.56334, 0.744151, 1)
 
 [node name="CanvasGroup" parent="CanvasLayer-1" parent_id_path=PackedInt32Array(778633630) index="0" unique_id=1797850078]
-material = SubResource("ShaderMaterial_kom3v")
+material = SubResource("ShaderMaterial_l5yi1")
 
 [node name="BackgroundGrass" type="Sprite2D" parent="CanvasLayer-1/CanvasGroup" index="0" unique_id=1776627335]
 texture = ExtResource("25_ua5hb")
@@ -222,7 +222,7 @@ texture = ExtResource("25_ua5hb")
 color = Color(0.23917282, 0.56334, 0.744151, 1)
 
 [node name="CanvasGroup" parent="CanvasLayer0" parent_id_path=PackedInt32Array(1651493334) index="0" unique_id=989673233]
-material = SubResource("ShaderMaterial_kom3v")
+material = SubResource("ShaderMaterial_l5yi1")
 
 [node name="MidgroundGrass" type="Sprite2D" parent="CanvasLayer0/CanvasGroup" index="0" unique_id=449692077]
 texture = ExtResource("26_16vt6")
@@ -239,7 +239,7 @@ texture = ExtResource("24_tiotc")
 color = Color(0.23917282, 0.56334, 0.744151, 1)
 
 [node name="CanvasGroup" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="0" unique_id=14983282]
-material = SubResource("ShaderMaterial_kom3v")
+material = SubResource("ShaderMaterial_l5yi1")
 
 [node name="ForegroundGrass" type="Sprite2D" parent="CanvasLayer1/CanvasGroup" index="0" unique_id=1783555938]
 texture = ExtResource("27_mw757")
@@ -256,7 +256,7 @@ texture = ExtResource("24_tiotc")
 color = Color(0.23917282, 0.56334, 0.744151, 1)
 
 [node name="CanvasGroup" parent="CanvasLayer2" parent_id_path=PackedInt32Array(43520109) index="0" unique_id=482891979]
-material = SubResource("ShaderMaterial_kom3v")
+material = SubResource("ShaderMaterial_l5yi1")
 
 [node name="CanvasGroup" parent="CanvasLayer3" parent_id_path=PackedInt32Array(329065854) index="0" unique_id=344384017]
-material = SubResource("ShaderMaterial_kom3v")
+material = SubResource("ShaderMaterial_l5yi1")
