@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cck8jur6ro7m3"
-path="res://.godot/imported/waterfallPinkBirdsSit.png-16aa44907fbbe31da77d053a022c5844.ctex"
+uid="uid://brb0v6m0tbcjg"
+path="res://.godot/imported/waterfallPinkBirdsFlight2.png-dcd18b6a8f589d74bc7e0560d7d10200.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/birds/waterfallPinkBirdsSit.png"
-dest_files=["res://.godot/imported/waterfallPinkBirdsSit.png-16aa44907fbbe31da77d053a022c5844.ctex"]
+source_file="res://assets/birds/waterfallPinkBirdsFlight2.png"
+dest_files=["res://.godot/imported/waterfallPinkBirdsFlight2.png-dcd18b6a8f589d74bc7e0560d7d10200.ctex"]
 
 [params]
 
