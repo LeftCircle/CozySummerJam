@@ -1,0 +1,262 @@
+[gd_scene format=3 uid="uid://blfh7mndwcf5x"]
+
+[ext_resource type="PackedScene" uid="uid://boaoiscsocj8u" path="res://scenes/base_bird_watching.tscn" id="1_ggtre"]
+[ext_resource type="Shader" uid="uid://betupunc464aq" path="res://assets/shaders/canvas_blur.gdshader" id="2_a5645"]
+[ext_resource type="Texture2D" uid="uid://cfq7muh48fkv1" path="res://assets/levels/beach/beachLayer1.png" id="3_nyvj0"]
+[ext_resource type="Texture2D" uid="uid://dtem6bgsduds5" path="res://assets/levels/beach/beachCloud_01.png" id="5_ifxsg"]
+[ext_resource type="Script" uid="uid://q3g6edgw5f0y" path="res://scenes/levels/waterfall/cloud.gd" id="6_l5yi1"]
+[ext_resource type="Texture2D" uid="uid://ckc8m8a4egei8" path="res://assets/levels/beach/beachCloud_02.png" id="7_8y6g4"]
+[ext_resource type="Texture2D" uid="uid://i485lur2bmdv" path="res://assets/levels/beach/beachCloud_03.png" id="8_i3g1m"]
+[ext_resource type="Texture2D" uid="uid://ds11oacaoa0kn" path="res://assets/vfx/Flare_small.PNG" id="8_nyvj0"]
+[ext_resource type="Texture2D" uid="uid://dtglh2jayl4wa" path="res://assets/levels/beach/beach/beachLayer2PNG1.png" id="9_0rxpt"]
+[ext_resource type="Texture2D" uid="uid://dspr5tlybawht" path="res://assets/levels/beach/beach/beachLayer2PNG2.png" id="10_4c7j8"]
+[ext_resource type="Texture2D" uid="uid://bmup1ru1omae0" path="res://assets/levels/beach/beach/beachLayer2PNG3.png" id="11_tm5xw"]
+[ext_resource type="Texture2D" uid="uid://it7tk7qxphsb" path="res://assets/levels/beach/beach/beachLayer2PNG4.png" id="12_51yty"]
+[ext_resource type="Texture2D" uid="uid://c8vafucmyw6md" path="res://assets/levels/beach/beach/beachLayer2PNG5.png" id="13_g8rtg"]
+[ext_resource type="Texture2D" uid="uid://bs4w5aino2y25" path="res://assets/levels/beach/beach/beachLayer2PNG6.png" id="14_l2oxy"]
+[ext_resource type="Texture2D" uid="uid://ck7m1uibr20yh" path="res://assets/levels/beach/beach/beachLayer2PNG7.png" id="15_oeug1"]
+[ext_resource type="Texture2D" uid="uid://ccqo6btuinmlf" path="res://assets/levels/beach/beach/beachLayer2PNG8.png" id="16_dajvu"]
+[ext_resource type="Texture2D" uid="uid://beb481xx3xbg8" path="res://assets/levels/beach/beach/beachLayer2PNG9.png" id="17_csbd6"]
+[ext_resource type="Texture2D" uid="uid://cnxck37o74ipc" path="res://assets/levels/beach/beach/beachLayer2PNG10.png" id="18_acxkv"]
+[ext_resource type="Texture2D" uid="uid://ddcl3duc0c1nr" path="res://assets/levels/beach/beach/beachLayer2PNG11.png" id="19_4d30j"]
+[ext_resource type="Texture2D" uid="uid://clhg14tv8srl6" path="res://assets/levels/beach/beach/beachLayer2PNG12.png" id="20_w6418"]
+[ext_resource type="Texture2D" uid="uid://ctb1tjp1isx6r" path="res://assets/levels/beach/beach/beachLayer2PNG13.png" id="21_w3l6w"]
+[ext_resource type="Shader" uid="uid://vt7d1qqjx5dn" path="res://assets/shaders/beach_water/beach_water.gdshader" id="22_4mp72"]
+[ext_resource type="Texture2D" uid="uid://bjendp3sp8rv2" path="res://assets/shaders/beach_water/beach_mask.png" id="23_i5hyq"]
+[ext_resource type="Texture2D" uid="uid://cce7thl088kmc" path="res://icon.svg" id="24_tiotc"]
+[ext_resource type="Texture2D" uid="uid://40dkwuodr61p" path="res://assets/levels/beach/beachLayer3.png" id="25_ua5hb"]
+[ext_resource type="Texture2D" uid="uid://bh8arwgmgwtdp" path="res://assets/levels/beach/beachLayer4.png" id="26_16vt6"]
+[ext_resource type="Texture2D" uid="uid://b8d6xv8u6c3sw" path="res://assets/levels/beach/beachLayer5.png" id="27_mw757"]
+[ext_resource type="Shader" uid="uid://cgmjvxbcyt1i0" path="res://assets/shaders/beach_water/beach_flower.gdshader" id="28_egavj"]
+[ext_resource type="Texture2D" uid="uid://bvigl64borwek" path="res://assets/shaders/beach_water/beach_seed_mask.png" id="28_l5yi1"]
+[ext_resource type="Texture2D" uid="uid://dtmv76tflpn3f" path="res://assets/shaders/beach_water/beach_flower_mask.png" id="29_ifxsg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kom3v"]
+resource_local_to_scene = true
+shader = ExtResource("2_a5645")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7ea0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0rxpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4c7j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tm5xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_51yty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_g8rtg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_l2oxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_oeug1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_dajvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_csbd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_acxkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4d30j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_w6418")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_w3l6w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_54n0j"]
+frequency = 0.0218
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s6s0e"]
+noise = SubResource("FastNoiseLite_54n0j")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kigen"]
+frequency = 0.1177
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0radm"]
+noise = SubResource("FastNoiseLite_kigen")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5ebt"]
+shader = ExtResource("22_4mp72")
+shader_parameter/mask_texture = ExtResource("23_i5hyq")
+shader_parameter/noise1 = SubResource("NoiseTexture2D_s6s0e")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_0radm")
+shader_parameter/scroll1 = Vector2(-0.005, 0.01)
+shader_parameter/scroll2 = Vector2(0.01, -0.005)
+shader_parameter/distortion_strength = -0.03499995416250001
+shader_parameter/tone_color = Color(1, 1, 1, 1)
+shader_parameter/top_color = Color(0.65882355, 1, 0.8509804, 1)
+shader_parameter/light_start = 0.4490000213275
+shader_parameter/light_end = 0.74800003553
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8y6g4"]
+shader = ExtResource("28_egavj")
+shader_parameter/mask_texture = ExtResource("28_l5yi1")
+shader_parameter/mask_texel_size = Vector2(0.004, 0.004)
+shader_parameter/glow_color = Color(0.18859336, 0.08031497, 0.04250046, 0.216)
+shader_parameter/body_strength = 0.1
+shader_parameter/glow_strength = 6.0
+shader_parameter/glow_radius = 3.0
+shader_parameter/samples = 24
+shader_parameter/rings = 6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3g1m"]
+shader = ExtResource("28_egavj")
+shader_parameter/mask_texture = ExtResource("29_ifxsg")
+shader_parameter/mask_texel_size = Vector2(0.004, 0.004)
+shader_parameter/glow_color = Color(0.19322094, 0.19100669, 0, 0.21900001)
+shader_parameter/body_strength = 0.1
+shader_parameter/glow_strength = 6.0
+shader_parameter/glow_radius = -10.0
+shader_parameter/samples = 24
+shader_parameter/rings = 12
+
+[node name="BaseBirdWatching" unique_id=1728431069 instance=ExtResource("1_ggtre")]
+
+[node name="CanvasGroup" parent="CanvasLayer-3" parent_id_path=PackedInt32Array(424427643) index="0" unique_id=1544375683]
+material = SubResource("ShaderMaterial_kom3v")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup" index="0" unique_id=435435528]
+texture = ExtResource("3_nyvj0")
+
+[node name="Clouds" type="Node2D" parent="CanvasLayer-3/CanvasGroup" index="1" unique_id=791420179]
+visible = false
+
+[node name="Cloud01" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds" index="0" unique_id=889798387]
+position = Vector2(951.4286, -857.1429)
+texture = ExtResource("5_ifxsg")
+script = ExtResource("6_l5yi1")
+min_scale = 0.6
+max_scale = 1.2
+
+[node name="Cloud02" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds" index="1" unique_id=280747806]
+position = Vector2(1598.5715, -998.5714)
+texture = ExtResource("7_8y6g4")
+script = ExtResource("6_l5yi1")
+min_scale = 0.6
+max_scale = 1.1
+
+[node name="Cloud03" type="Sprite2D" parent="CanvasLayer-3/CanvasGroup/Clouds" index="2" unique_id=1617019397]
+position = Vector2(1698.5715, -630)
+texture = ExtResource("8_i3g1m")
+script = ExtResource("6_l5yi1")
+min_scale = 1.0
+max_scale = 1.1
+max_offset = 1.0
+
+[node name="Moon" type="Node2D" parent="CanvasLayer-3/CanvasGroup" index="2" unique_id=742419776]
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer-3/CanvasGroup/Moon" index="0" unique_id=1189971790]
+position = Vector2(1535.7144, -770)
+color = Color(0.12037235, 0.12037235, 0.12037235, 1)
+energy = 5.1
+range_z_min = 0
+range_z_max = 0
+range_layer_min = -3
+range_layer_max = -2
+texture = ExtResource("8_nyvj0")
+texture_scale = 24.81
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer-3/CanvasGroup/Moon" index="1" unique_id=1454690393]
+position = Vector2(1541.4286, 131.42857)
+color = Color(0.12037235, 0.12037235, 0.12037235, 1)
+energy = 3.1
+range_z_min = 0
+range_z_max = 0
+range_layer_min = -3
+range_layer_max = -2
+texture = ExtResource("8_nyvj0")
+texture_scale = 24.81
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer-3/CanvasGroup" index="3" unique_id=1749050073]
+color = Color(0.23917282, 0.56334, 0.744151, 1)
+
+[node name="CanvasGroup" parent="CanvasLayer-2" parent_id_path=PackedInt32Array(233039880) index="0" unique_id=1562478865]
+material = SubResource("ShaderMaterial_kom3v")
+
+[node name="Beach_Waves" type="AnimatedSprite2D" parent="CanvasLayer-2/CanvasGroup" index="0" unique_id=1221663415]
+sprite_frames = SubResource("SpriteFrames_v7ea0")
+frame_progress = 0.6716649
+
+[node name="Shader_Water" type="Sprite2D" parent="CanvasLayer-2/CanvasGroup" index="1" unique_id=424488145]
+top_level = true
+material = SubResource("ShaderMaterial_b5ebt")
+scale = Vector2(30.05, 16.849998)
+texture = ExtResource("24_tiotc")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer-2/CanvasGroup" index="2" unique_id=700408246]
+color = Color(0.23917282, 0.56334, 0.744151, 1)
+
+[node name="CanvasGroup" parent="CanvasLayer-1" parent_id_path=PackedInt32Array(778633630) index="0" unique_id=1797850078]
+material = SubResource("ShaderMaterial_kom3v")
+
+[node name="BackgroundGrass" type="Sprite2D" parent="CanvasLayer-1/CanvasGroup" index="0" unique_id=1776627335]
+texture = ExtResource("25_ua5hb")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer-1/CanvasGroup" index="1" unique_id=154009624]
+color = Color(0.23917282, 0.56334, 0.744151, 1)
+
+[node name="CanvasGroup" parent="CanvasLayer0" parent_id_path=PackedInt32Array(1651493334) index="0" unique_id=989673233]
+material = SubResource("ShaderMaterial_kom3v")
+
+[node name="MidgroundGrass" type="Sprite2D" parent="CanvasLayer0/CanvasGroup" index="0" unique_id=449692077]
+texture = ExtResource("26_16vt6")
+
+[node name="Glow" type="TextureRect" parent="CanvasLayer0/CanvasGroup/MidgroundGrass" index="0" unique_id=1247785631]
+material = SubResource("ShaderMaterial_8y6g4")
+offset_left = -1910.9089
+offset_top = -1080.0
+offset_right = 1929.0911
+offset_bottom = 1080.0
+texture = ExtResource("24_tiotc")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer0/CanvasGroup" index="1" unique_id=1976486945]
+color = Color(0.23917282, 0.56334, 0.744151, 1)
+
+[node name="CanvasGroup" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="0" unique_id=14983282]
+material = SubResource("ShaderMaterial_kom3v")
+
+[node name="ForegroundGrass" type="Sprite2D" parent="CanvasLayer1/CanvasGroup" index="0" unique_id=1783555938]
+texture = ExtResource("27_mw757")
+
+[node name="Glow" type="TextureRect" parent="CanvasLayer1/CanvasGroup/ForegroundGrass" index="0" unique_id=1251197397]
+material = SubResource("ShaderMaterial_i3g1m")
+offset_left = -1910.9089
+offset_top = -1080.0
+offset_right = 1929.0911
+offset_bottom = 1080.0
+texture = ExtResource("24_tiotc")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer1/CanvasGroup" index="1" unique_id=567360074]
+color = Color(0.23917282, 0.56334, 0.744151, 1)
+
+[node name="CanvasGroup" parent="CanvasLayer2" parent_id_path=PackedInt32Array(43520109) index="0" unique_id=482891979]
+material = SubResource("ShaderMaterial_kom3v")
+
+[node name="CanvasGroup" parent="CanvasLayer3" parent_id_path=PackedInt32Array(329065854) index="0" unique_id=344384017]
+material = SubResource("ShaderMaterial_kom3v")
