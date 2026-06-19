@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ceg05qkjyswoi" path="res://scenes/characters/birds/pink_headed_warbler.gd" id="2_cuacv"]
 [ext_resource type="SpriteFrames" uid="uid://cyfui3yawdsaj" path="res://scenes/characters/birds/pink_headed_warbler.tres" id="3_cqamf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxpfw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqamf"]
 resource_local_to_scene = true
 size = Vector2(92, 74)
 
@@ -69,7 +69,7 @@ script = ExtResource("2_cuacv")
 bird_name = "Pink Headed Warbler"
 
 [node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1786639052) index="0" unique_id=1410104586]
-shape = SubResource("RectangleShape2D_vxpfw")
+shape = SubResource("RectangleShape2D_cqamf")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1003371704]
 sprite_frames = ExtResource("3_cqamf")

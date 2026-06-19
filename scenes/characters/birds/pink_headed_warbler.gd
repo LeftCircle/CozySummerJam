@@ -29,3 +29,5 @@ func dissappear() -> void:
 	else:
 		anim_sprite.play("flight_00")
 	anim_player.play_backwards("fade_in")
+	await anim_player.animation_finished
+	queue_free()
