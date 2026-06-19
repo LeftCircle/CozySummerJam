@@ -1,5 +1,3 @@
-
-
 var day_group;
 var night_group;
 var main_node: Node
