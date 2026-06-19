@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dmdkm5jtcegke"]
+
+[ext_resource type="Shader" uid="uid://d0qhyaif8tqby" path="res://assets/shaders/blur.gdshader" id="1_kb8xe"]
+[ext_resource type="Script" uid="uid://dcc33t44hnvmv" path="res://scenes/ui/photo_review.gd" id="1_nhrrp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhrrp"]
+shader = ExtResource("1_kb8xe")
+shader_parameter/blur_amount = 1.5
+
+[node name="PhotoReview" type="Control" unique_id=176465934]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nhrrp")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1113176283]
+modulate = Color(0.13149942, 0.13149942, 0.13149942, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.007843138, 0.007843138, 0.007843138, 0.4745098)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1719526528]
+modulate = Color(0.13149942, 0.13149942, 0.13149942, 1)
+material = SubResource("ShaderMaterial_nhrrp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=161263558]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.03549383
+anchor_right = 0.5
+anchor_bottom = 0.03549383
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Photo"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1474805186]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035590276
+anchor_top = 0.129321
+anchor_right = 0.48046526
+anchor_bottom = 0.91932106
+offset_top = 0.19999695
+offset_right = -0.49597168
+offset_bottom = 0.27996826
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="." unique_id=2109502185]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7239583
+anchor_top = 0.13425925
+anchor_right = 0.84349304
+anchor_bottom = 0.16925927
+offset_right = -48.70401
+offset_bottom = 0.3199997
+text = "Description"
+metadata/_edit_use_anchors_ = true

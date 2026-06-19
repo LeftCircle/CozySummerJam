@@ -479,6 +479,7 @@ shader_parameter/is_canvas_group = true
 sprite_for_img = NodePath("SubViewportForPhotoCapture/SubViewport/Sprite2D")
 camera = NodePath("CanvasLayer/Camera/Camera2D")
 canvas_groups = [NodePath("CanvasLayer-3/CanvasGroup"), NodePath("CanvasLayer-2/CanvasGroup"), NodePath("CanvasLayer-1/CanvasGroup"), NodePath("CanvasLayer0/CanvasGroup"), NodePath("CanvasLayer1/CanvasGroup"), NodePath("CanvasLayer2/CanvasGroup"), NodePath("CanvasLayer3/CanvasGroup")]
+photo_size = Vector2(512, 512)
 
 [node name="CanvasGroup" parent="CanvasLayer-3" parent_id_path=PackedInt32Array(424427643) index="0" unique_id=1544375683]
 material = SubResource("ShaderMaterial_1ey4f")
@@ -572,28 +573,24 @@ color = Color(0.444802, 0.5760781, 0.89368165, 1)
 layer = 4
 follow_viewport_enabled = true
 
-[node name="Camera" parent="CanvasLayer" index="0" unique_id=395290309 instance=ExtResource("22_1ey4f")]
-z_as_relative = false
+[node name="Camera" parent="CanvasLayer" index="0" unique_id=682986111 instance=ExtResource("22_1ey4f")]
 
 [node name="SubViewportForPhotoCapture" type="SubViewportContainer" parent="." index="9" unique_id=1526029218]
 offset_left = 3296.0
-offset_top = -31.0
 offset_right = 3808.0
-offset_bottom = 481.0
+offset_bottom = 512.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportForPhotoCapture" index="0" unique_id=1765804483]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(256, 256)
 render_target_update_mode = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewportForPhotoCapture/SubViewport" index="0" unique_id=897725661]
-position = Vector2(128, 131)
+position = Vector2(256, 256)
 texture = ExtResource("22_rbq6h")
 region_rect = Rect2(0, 0, 128, 128)
 region_filter_clip_enabled = true
 
 [connection signal="take_photo" from="." to="CanvasLayer/Camera" method="_on_photo_taken"]
-[connection signal="zoom" from="CanvasLayer/Camera" to="." method="_on_level_changed"]
 
 [editable path="CanvasLayer/Camera"]

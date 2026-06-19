@@ -20,6 +20,7 @@ func _ready():
 	_on_level_changed(0)
 	var mat : Material = $CanvasLayer0/CanvasGroup.material
 	mat.set("shader_parameter/strength", 0)
+	sv.size = photo_size
 
 func _process(delta):
 	#global_position = get_global_mouse_position()
@@ -38,7 +39,8 @@ func _process(delta):
 		#sprite_for_img.position += photo_size / 2.0
 		
 		await RenderingServer.frame_post_draw
-		sv.get_texture().get_image().save_png("res://Screenshot.png")
+		var photo : Image = sv.get_texture().get_image()
+		photo.save_png("res://Screenshot.png")
 
 # Could clean it up following this function
 #func take_screenshoot() -> void:

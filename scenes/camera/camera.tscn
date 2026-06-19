@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c5vjxaji5cqnd"]
 
 [ext_resource type="Script" uid="uid://d3p37jxyag7p8" path="res://scenes/camera/camera.gd" id="1_6m2n3"]
-[ext_resource type="Texture2D" uid="uid://bj0a8o6s8px8s" path="res://assets/camera/reticle.png" id="1_xejhd"]
 [ext_resource type="Script" uid="uid://cd0b8pkhxyk3e" path="res://scenes/characters/resources/movement.gd" id="2_0jiuk"]
+[ext_resource type="Texture2D" uid="uid://mu2at3411084" path="res://assets/camera/reticle_big.png" id="3_qr7cc"]
 [ext_resource type="Script" uid="uid://ofcpyo2xtefe" path="res://scenes/characters/player/components/input_processor.gd" id="4_qr7cc"]
+[ext_resource type="PackedScene" uid="uid://dmdkm5jtcegke" path="res://scenes/ui/photo_review.tscn" id="5_u3rx3"]
 
 [sub_resource type="Resource" id="Resource_qr7cc"]
 script = ExtResource("2_0jiuk")
@@ -71,10 +72,10 @@ script = ExtResource("1_6m2n3")
 movement = SubResource("Resource_qr7cc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=689160153]
-texture = ExtResource("1_xejhd")
+texture = ExtResource("3_qr7cc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2084590571]
-zoom = Vector2(1.39, 1.39)
+zoom = Vector2(0.75, 0.75)
 
 [node name="InputProcessor" type="Node" parent="." unique_id=620030994]
 script = ExtResource("4_qr7cc")
@@ -82,3 +83,20 @@ metadata/_custom_type_script = "uid://ofcpyo2xtefe"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=602278814]
 libraries/ = SubResource("AnimationLibrary_u3rx3")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=783888893]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Control" type="Control" parent="." unique_id=1434911978]
+custom_minimum_size = Vector2(1531.335, 871.93)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PhotoReview" parent="Control" unique_id=176465934 instance=ExtResource("5_u3rx3")]
+visible = false
+layout_mode = 1

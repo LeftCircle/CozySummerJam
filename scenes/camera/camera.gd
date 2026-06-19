@@ -9,6 +9,7 @@ signal zoom(amount : int)
 @onready var anim_player := $AnimationPlayer
 @onready var ui = $Sprite2D
 @onready var camera := $Camera2D
+@onready var photo_review_ui : PhotoReview = $Control/PhotoReview
 
 func _physics_process(delta : float) -> void:
 	velocity = movement.tick(delta, input_processor.input_dir, velocity)
@@ -28,9 +29,17 @@ func adjust_zoom(amount : int) -> void:
 	#else:
 		#camera.zoom *= 1.1
 
-
 func _on_photo_taken() -> void:
 	ui.hide()
 	await get_tree().process_frame
 	await get_tree().process_frame
 	ui.show()
+	set_physics_process(false)
+	set_process(false)
+	photo_review_ui.show()
+
+func _on_photo_review_finished() -> void:
+	photo_review_ui.hide()
+	set_physics_process(true)
+	set_process(true)
+	
