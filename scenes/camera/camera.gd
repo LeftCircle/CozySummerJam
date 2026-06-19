@@ -34,12 +34,16 @@ func _on_photo_taken() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	ui.show()
-	set_physics_process(false)
-	set_process(false)
-	photo_review_ui.show()
+	
 
 func _on_photo_review_finished() -> void:
 	photo_review_ui.hide()
 	set_physics_process(true)
 	set_process(true)
+
+func _on_photo_captured(photo : Image) -> void:
+	set_physics_process(false)
+	set_process(false)
+	photo_review_ui.show()
+	photo_review_ui.set_photo(photo)
 	

@@ -1,6 +1,7 @@
 extends Node2D
 
 signal take_photo()
+signal photo_captured(photo : Image)
 
 @export var sprite_for_img : Sprite2D
 @export var camera : Camera2D
@@ -41,6 +42,8 @@ func _process(delta):
 		await RenderingServer.frame_post_draw
 		var photo : Image = sv.get_texture().get_image()
 		photo.save_png("res://Screenshot.png")
+		PhotoTracker.current_photo = photo
+		photo_captured.emit(photo)
 
 # Could clean it up following this function
 #func take_screenshoot() -> void:

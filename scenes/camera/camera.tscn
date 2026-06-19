@@ -98,5 +98,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PhotoReview" parent="Control" unique_id=176465934 instance=ExtResource("5_u3rx3")]
-visible = false
 layout_mode = 1
