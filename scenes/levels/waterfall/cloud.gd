@@ -3,6 +3,9 @@ extends Sprite2D
 @export var min_scale: float = 0.5
 @export var max_scale: float = 1.5
 
+@export var min_offset: float = 0.0
+@export var max_offset: float = 30.0
+
 var start_x: float
 var random_offset: float
 var random_speed: float
@@ -12,7 +15,7 @@ func _ready() -> void:
 	var random_size: float = randf_range(min_scale, max_scale)
 	scale = Vector2(random_size, random_size)
 	start_x = position.x
-	random_offset = randf_range(0.0, 30.0)
+	random_offset = randf_range(min_offset, max_offset)
 	random_speed = randf_range(0.08, 0.2)
 
 
