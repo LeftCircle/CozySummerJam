@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bkdw4e4jry5j"]
+
+[ext_resource type="Script" uid="uid://bx825vkuigjtj" path="res://scenes/utility/scene_scatterer.gd" id="1_15ygv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15ygv"]
+resource_local_to_scene = true
+
+[node name="SceneScatterer" type="Node2D" unique_id=582294056]
+script = ExtResource("1_15ygv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=951731441]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=307036931]
+shape = SubResource("RectangleShape2D_15ygv")

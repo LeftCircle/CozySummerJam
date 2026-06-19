@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cyfui3yawdsaj"]
+
+[ext_resource type="Texture2D" uid="uid://d0gjmswsbwqyt" path="res://assets/birds/waterfallPinkBirdsFlight1.png" id="1_8uh1c"]
+[ext_resource type="Texture2D" uid="uid://brb0v6m0tbcjg" path="res://assets/birds/waterfallPinkBirdsFlight2.png" id="2_voo62"]
+[ext_resource type="Texture2D" uid="uid://70rpkhpfim2i" path="res://assets/birds/waterfallPinkBirdsSit1.png" id="3_tn8qt"]
+[ext_resource type="Texture2D" uid="uid://dy4byxqttgk1u" path="res://assets/birds/waterfallPinkBirdsSit2.png" id="4_fpo8b"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8uh1c")
+}],
+"loop": true,
+"name": &"flight_00",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_voo62")
+}],
+"loop": true,
+"name": &"flight_01",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tn8qt")
+}],
+"loop": true,
+"name": &"land_00",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fpo8b")
+}],
+"loop": true,
+"name": &"land_01",
+"speed": 5.0
+}]

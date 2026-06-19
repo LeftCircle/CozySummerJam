@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c14r2ufhkrdde"]
+
+[ext_resource type="PackedScene" uid="uid://cc33sbaa68tco" path="res://scenes/characters/base_bird.tscn" id="1_df722"]
+[ext_resource type="Script" uid="uid://ceg05qkjyswoi" path="res://scenes/characters/birds/pink_headed_warbler.gd" id="2_cuacv"]
+[ext_resource type="SpriteFrames" uid="uid://cyfui3yawdsaj" path="res://scenes/characters/birds/pink_headed_warbler.tres" id="3_cqamf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxpfw"]
+resource_local_to_scene = true
+size = Vector2(92, 74)
+
+[sub_resource type="Animation" id="Animation_cqamf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_0jsj8"]
+resource_name = "fade_in"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.015, -0.25, 0, 0.25, 0, 1, -0.16666667, -0.16416667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.015, -0.25, 0, 0.25, 0, 1, -0.16666667, -0.16416667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2sqe5"]
+_data = {
+&"RESET": SubResource("Animation_cqamf"),
+&"fade_in": SubResource("Animation_0jsj8")
+}
+
+[node name="PinkHeadedWarbler" unique_id=1605855312 instance=ExtResource("1_df722")]
+script = ExtResource("2_cuacv")
+bird_name = "Pink Headed Warbler"
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1786639052) index="0" unique_id=1410104586]
+shape = SubResource("RectangleShape2D_vxpfw")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1003371704]
+sprite_frames = ExtResource("3_cqamf")
+animation = &"flight_01"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=783276240]
+libraries/ = SubResource("AnimationLibrary_2sqe5")

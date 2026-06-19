@@ -20,8 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://cx400s6ep2gtc" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG6.png" id="18_c5ysb"]
 [ext_resource type="Texture2D" uid="uid://nuaqm65llt6i" path="res://assets/levels/waterfall/waterfallLayer/waterfallPNG7.png" id="19_op4m6"]
 [ext_resource type="PackedScene" uid="uid://bihh1ol0cd65k" path="res://scenes/vfx/vfx_firely/vfx_firefly.tscn" id="20_o45xt"]
+[ext_resource type="PackedScene" uid="uid://bkdw4e4jry5j" path="res://scenes/utility/scene_scatterer.tscn" id="21_spt7h"]
 [ext_resource type="Texture2D" uid="uid://5xgvuan05n22" path="res://assets/levels/waterfall/waterfallLayer06.png" id="21_wv3o6"]
 [ext_resource type="PackedScene" uid="uid://c5vjxaji5cqnd" path="res://scenes/camera/camera.tscn" id="22_1ey4f"]
+[ext_resource type="PackedScene" uid="uid://c14r2ufhkrdde" path="res://scenes/characters/birds/pink_headed_warbler.tscn" id="22_itofr"]
 [ext_resource type="Texture2D" uid="uid://csl1vdyml2agb" path="res://FullScreenshot.png" id="22_rbq6h"]
 
 [sub_resource type="Shader" id="Shader_jvllu"]
@@ -106,7 +108,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ey4f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_spt7h"]
 resource_local_to_scene = true
 shader = SubResource("Shader_jvllu")
 shader_parameter/strength = 0.0
@@ -124,96 +126,6 @@ shader_parameter/twinkle_effect = 0.499999988824
 shader_parameter/twinkle_speed = 0.3
 shader_parameter/pixelate_enabled = false
 shader_parameter/pixelate_count = 100.0
-
-[sub_resource type="Shader" id="Shader_rbq6h"]
-resource_local_to_scene = true
-code = "shader_type canvas_item;
-render_mode unshaded;
-
-/**
- * How blurry the result should be.
- * This value will cause the shader to sample each pixel's neighbors up to `strength` pixels away and blur them together.
- */
-uniform float strength : hint_range(0.0, 10.0) = 0.0;
-
-/**
- * Exponent value for the number of samples to take.
- * This value affects the quality at the cost of performance.
- * The number of samples taken will be 2 to the power of this value, which means that every time you increment this value by one it doubles the required processing time.
- */
-uniform int sample_power : hint_range(3, 8, 1) = 4;
-
-/**
- * Check this box when using this on a CanvasGroup.
- */
-uniform bool is_canvas_group = false;
-
-uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-
-vec2 rotate(vec2 v, float angle) {
-	mat2 rotation_matrix = mat2(vec2(cos(angle), sin(angle)), vec2(-sin(angle), cos(angle)));
-    return v * rotation_matrix;
-}
-
-void fragment() {
-    vec2 pixel_size = is_canvas_group ? SCREEN_PIXEL_SIZE : TEXTURE_PIXEL_SIZE;
-    vec2 uv = is_canvas_group ? SCREEN_UV : UV;
-
-	float samples = float(pow(2.0, float(sample_power)));
-	float layer_increment = strength / samples;
-	float angle_increment = TAU / samples;
-
-	// Fetch the color of the processed pixel.
-	vec4 color;
-	if (is_canvas_group) {
-		color = textureLod(screen_texture, uv, 0.0);
-	} else {
-		color = textureLod(TEXTURE, uv, 0.0);
-	}
-
-
-	// Iterate over samples number of layers. Skip this loop entirely if the strength is 0.
-	for (float d = layer_increment; d <= strength && strength > 0.0; d += layer_increment) {
-		// Create an empty vec4 to store the average color of the current layer.
-		vec4 layer_color = vec4(0.0, 0.0, 0.0, 0.0);
-
-		// Iterate over samples number of angles.
-		for (float t = 0.0; t < TAU; t += angle_increment) {
-			vec2 sample_uv = uv + rotate(pixel_size * d, t);
-			vec4 sample_color;
-			if (is_canvas_group) {
-				sample_color = textureLod(screen_texture, sample_uv, 0.0);
-			} else {
-				sample_color = textureLod(TEXTURE, sample_uv, 0.0);
-			}
-			layer_color += sample_color;
-		}
-
-		// Find the average color of the current layer.
-		layer_color /= samples;
-
-		// Determine the weight given to the current layer. Farther layers will have less weight.
-		float weight = 1.0 - sqrt(d / strength);
-
-		// Mix the current layer's color with the processed pixel's color by the calculated weight.
-		color = mix(color, layer_color, weight);
-	}
-
-	if (is_canvas_group) {
-		color.rgb /= color.a > 0.0001 ? color.a : 1.0;
-		COLOR *= color;
-	} else {
-		COLOR = color;
-	}
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_spt7h"]
-resource_local_to_scene = true
-shader = SubResource("Shader_rbq6h")
-shader_parameter/strength = 0.0
-shader_parameter/sample_power = 4
-shader_parameter/is_canvas_group = true
 
 [sub_resource type="Shader" id="Shader_itofr"]
 resource_local_to_scene = true
@@ -395,6 +307,96 @@ shader_parameter/strength = 0.0
 shader_parameter/sample_power = 4
 shader_parameter/is_canvas_group = true
 
+[sub_resource type="Shader" id="Shader_u4psi"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+/**
+ * How blurry the result should be.
+ * This value will cause the shader to sample each pixel's neighbors up to `strength` pixels away and blur them together.
+ */
+uniform float strength : hint_range(0.0, 10.0) = 0.0;
+
+/**
+ * Exponent value for the number of samples to take.
+ * This value affects the quality at the cost of performance.
+ * The number of samples taken will be 2 to the power of this value, which means that every time you increment this value by one it doubles the required processing time.
+ */
+uniform int sample_power : hint_range(3, 8, 1) = 4;
+
+/**
+ * Check this box when using this on a CanvasGroup.
+ */
+uniform bool is_canvas_group = false;
+
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+
+vec2 rotate(vec2 v, float angle) {
+	mat2 rotation_matrix = mat2(vec2(cos(angle), sin(angle)), vec2(-sin(angle), cos(angle)));
+    return v * rotation_matrix;
+}
+
+void fragment() {
+    vec2 pixel_size = is_canvas_group ? SCREEN_PIXEL_SIZE : TEXTURE_PIXEL_SIZE;
+    vec2 uv = is_canvas_group ? SCREEN_UV : UV;
+
+	float samples = float(pow(2.0, float(sample_power)));
+	float layer_increment = strength / samples;
+	float angle_increment = TAU / samples;
+
+	// Fetch the color of the processed pixel.
+	vec4 color;
+	if (is_canvas_group) {
+		color = textureLod(screen_texture, uv, 0.0);
+	} else {
+		color = textureLod(TEXTURE, uv, 0.0);
+	}
+
+
+	// Iterate over samples number of layers. Skip this loop entirely if the strength is 0.
+	for (float d = layer_increment; d <= strength && strength > 0.0; d += layer_increment) {
+		// Create an empty vec4 to store the average color of the current layer.
+		vec4 layer_color = vec4(0.0, 0.0, 0.0, 0.0);
+
+		// Iterate over samples number of angles.
+		for (float t = 0.0; t < TAU; t += angle_increment) {
+			vec2 sample_uv = uv + rotate(pixel_size * d, t);
+			vec4 sample_color;
+			if (is_canvas_group) {
+				sample_color = textureLod(screen_texture, sample_uv, 0.0);
+			} else {
+				sample_color = textureLod(TEXTURE, sample_uv, 0.0);
+			}
+			layer_color += sample_color;
+		}
+
+		// Find the average color of the current layer.
+		layer_color /= samples;
+
+		// Determine the weight given to the current layer. Farther layers will have less weight.
+		float weight = 1.0 - sqrt(d / strength);
+
+		// Mix the current layer's color with the processed pixel's color by the calculated weight.
+		color = mix(color, layer_color, weight);
+	}
+
+	if (is_canvas_group) {
+		color.rgb /= color.a > 0.0001 ? color.a : 1.0;
+		COLOR *= color;
+	} else {
+		COLOR = color;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n61jp"]
+resource_local_to_scene = true
+shader = SubResource("Shader_u4psi")
+shader_parameter/strength = 0.0
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rpjx3"]
 animations = [{
 "frames": [{
@@ -455,23 +457,27 @@ shader_parameter/top_color = Color(0.1882353, 0.80784315, 0.92156863, 0.44313726
 shader_parameter/light_start = 0.4210000199975
 shader_parameter/light_end = 0.62400002964
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u4psi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l202w"]
 resource_local_to_scene = true
-shader = SubResource("Shader_rbq6h")
+size = Vector2(1421, 651)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l07tl"]
+resource_local_to_scene = true
+shader = SubResource("Shader_itofr")
 shader_parameter/strength = 0.0
 shader_parameter/sample_power = 4
 shader_parameter/is_canvas_group = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n61jp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5ysb"]
 resource_local_to_scene = true
-shader = SubResource("Shader_rbq6h")
+shader = SubResource("Shader_itofr")
 shader_parameter/strength = 0.0
 shader_parameter/sample_power = 4
 shader_parameter/is_canvas_group = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l202w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_op4m6"]
 resource_local_to_scene = true
-shader = SubResource("Shader_rbq6h")
+shader = SubResource("Shader_itofr")
 shader_parameter/strength = 0.0
 shader_parameter/sample_power = 4
 shader_parameter/is_canvas_group = true
@@ -484,7 +490,7 @@ canvas_groups = [NodePath("CanvasLayer-3/CanvasGroup"), NodePath("CanvasLayer-2/
 photo_size = Vector2(512, 512)
 
 [node name="CanvasGroup" parent="CanvasLayer-3" parent_id_path=PackedInt32Array(424427643) index="0" unique_id=1544375683]
-material = SubResource("ShaderMaterial_1ey4f")
+material = SubResource("ShaderMaterial_spt7h")
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer-3/CanvasGroup" index="0" unique_id=892942877]
 
@@ -526,7 +532,7 @@ position = Vector2(2880, 1620)
 color = Color(0.444802, 0.5760781, 0.89368165, 1)
 
 [node name="CanvasGroup" parent="CanvasLayer-2" parent_id_path=PackedInt32Array(233039880) index="0" unique_id=1562478865]
-material = SubResource("ShaderMaterial_spt7h")
+material = SubResource("ShaderMaterial_u270u")
 
 [node name="Midground_Far" type="Sprite2D" parent="CanvasLayer-2/CanvasGroup" index="0" unique_id=1283662727]
 texture = ExtResource("11_u270u")
@@ -536,7 +542,7 @@ position = Vector2(2880, 1620)
 color = Color(0.444802, 0.5760781, 0.89368165, 1)
 
 [node name="CanvasGroup" parent="CanvasLayer-1" parent_id_path=PackedInt32Array(778633630) index="0" unique_id=1797850078]
-material = SubResource("ShaderMaterial_u270u")
+material = SubResource("ShaderMaterial_ghtnl")
 
 [node name="Midground_Close" type="Sprite2D" parent="CanvasLayer-1/CanvasGroup" index="0" unique_id=1854377209]
 texture = ExtResource("12_c35dd")
@@ -546,7 +552,7 @@ position = Vector2(2880, 1620)
 color = Color(0.444802, 0.5760781, 0.89368165, 1)
 
 [node name="CanvasGroup" parent="CanvasLayer0" parent_id_path=PackedInt32Array(1651493334) index="0" unique_id=989673233]
-material = SubResource("ShaderMaterial_ghtnl")
+material = SubResource("ShaderMaterial_n61jp")
 
 [node name="Waterfall" type="AnimatedSprite2D" parent="CanvasLayer0/CanvasGroup" index="0" unique_id=524115644]
 sprite_frames = SubResource("SpriteFrames_rpjx3")
@@ -568,11 +574,20 @@ texture = ExtResource("10_itofr")
 position = Vector2(2880, 1620)
 color = Color(0.444802, 0.5760781, 0.89368165, 1)
 
+[node name="SceneScatterer" parent="CanvasLayer0/CanvasGroup" index="4" unique_id=582294056 node_paths=PackedStringArray("node_to_scatter_under") instance=ExtResource("21_spt7h")]
+scenes_to_scatter = Array[PackedScene]([ExtResource("22_itofr")])
+node_to_scatter_under = NodePath(".")
+continuous_scatter = true
+
+[node name="CollisionShape2D" parent="CanvasLayer0/CanvasGroup/SceneScatterer/Area2D" parent_id_path=PackedInt32Array(582294056, 951731441) index="0" unique_id=307036931]
+position = Vector2(-1147.5, 677.5)
+shape = SubResource("RectangleShape2D_l202w")
+
 [node name="CanvasGroup" parent="CanvasLayer1" parent_id_path=PackedInt32Array(2002944551) index="0" unique_id=14983282]
-material = SubResource("ShaderMaterial_u4psi")
+material = SubResource("ShaderMaterial_l07tl")
 
 [node name="CanvasGroup" parent="CanvasLayer2" parent_id_path=PackedInt32Array(43520109) index="0" unique_id=482891979]
-material = SubResource("ShaderMaterial_n61jp")
+material = SubResource("ShaderMaterial_c5ysb")
 
 [node name="Foreground" type="Sprite2D" parent="CanvasLayer2/CanvasGroup" index="0" unique_id=913075410]
 texture = ExtResource("21_wv3o6")
@@ -583,7 +598,7 @@ color = Color(0.444802, 0.5760781, 0.89368165, 1)
 
 [node name="CanvasGroup" parent="CanvasLayer3" parent_id_path=PackedInt32Array(329065854) index="0" unique_id=344384017]
 self_modulate = Color(1, 1, 1, 0)
-material = SubResource("ShaderMaterial_l202w")
+material = SubResource("ShaderMaterial_op4m6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="7" unique_id=766719640]
 layer = 4
@@ -611,4 +626,5 @@ region_filter_clip_enabled = true
 [connection signal="take_photo" from="." to="CanvasLayer/Camera" method="_on_photo_taken"]
 [connection signal="zoom" from="CanvasLayer/Camera" to="." method="_on_level_changed"]
 
+[editable path="CanvasLayer0/CanvasGroup/SceneScatterer"]
 [editable path="CanvasLayer/Camera"]
