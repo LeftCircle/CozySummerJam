@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bjhvs2dqwc2h1"]
+
+[ext_resource type="PackedScene" uid="uid://c5vjxaji5cqnd" path="res://scenes/camera/camera.tscn" id="1_j6eta"]
+[ext_resource type="PackedScene" uid="uid://dh2y8bb8lnaa6" path="res://scenes/characters/birds/flamingo_tree.tscn" id="2_okvev"]
+
+[node name="TestPhotoCapture" type="Node2D" unique_id=35479736]
+
+[node name="Camera" parent="." unique_id=682986111 instance=ExtResource("1_j6eta")]
+
+[node name="FlamingoTree" parent="." unique_id=1605855312 instance=ExtResource("2_okvev")]

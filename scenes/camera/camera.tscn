@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://mu2at3411084" path="res://assets/camera/reticle_big.png" id="3_qr7cc"]
 [ext_resource type="Script" uid="uid://ofcpyo2xtefe" path="res://scenes/characters/player/components/input_processor.gd" id="4_qr7cc"]
 [ext_resource type="PackedScene" uid="uid://dmdkm5jtcegke" path="res://scenes/ui/photo_review.tscn" id="5_u3rx3"]
+[ext_resource type="Texture2D" uid="uid://csl1vdyml2agb" path="res://FullScreenshot.png" id="6_21tcn"]
 
 [sub_resource type="Resource" id="Resource_qr7cc"]
 script = ExtResource("2_0jiuk")
@@ -67,9 +68,13 @@ _data = {
 &"adjust_zoom": SubResource("Animation_qr7cc")
 }
 
-[node name="Camera" type="CharacterBody2D" unique_id=682986111]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21tcn"]
+size = Vector2(512, 512)
+
+[node name="Camera" type="CharacterBody2D" unique_id=682986111 node_paths=PackedStringArray("sprite_for_img")]
 script = ExtResource("1_6m2n3")
 movement = SubResource("Resource_qr7cc")
+sprite_for_img = NodePath("SubViewportForPhotoCapture/SubViewport/Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=689160153]
 texture = ExtResource("3_qr7cc")
@@ -100,3 +105,29 @@ grow_vertical = 2
 [node name="PhotoReview" parent="Control" unique_id=176465934 instance=ExtResource("5_u3rx3")]
 visible = false
 layout_mode = 1
+
+[node name="SubViewportForPhotoCapture" type="SubViewportContainer" parent="." unique_id=1883409016]
+offset_left = 3296.0
+offset_right = 3808.0
+offset_bottom = 512.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportForPhotoCapture" unique_id=2037171127]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportForPhotoCapture/SubViewport" unique_id=1881715305]
+position = Vector2(256, 256)
+texture = ExtResource("6_21tcn")
+region_rect = Rect2(0, 0, 128, 128)
+region_filter_clip_enabled = true
+
+[node name="BirdArea" type="Area2D" parent="." unique_id=854188162]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BirdArea" unique_id=551017529]
+shape = SubResource("RectangleShape2D_21tcn")
+
+[connection signal="area_entered" from="BirdArea" to="." method="_on_bird_area_area_entered"]
+[connection signal="area_exited" from="BirdArea" to="." method="_on_bird_area_area_exited"]

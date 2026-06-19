@@ -607,6 +607,8 @@ texture = ExtResource("22_rbq6h")
 region_rect = Rect2(0, 0, 128, 128)
 region_filter_clip_enabled = true
 
+[connection signal="photo_captured" from="." to="CanvasLayer/Camera" method="_on_photo_captured"]
 [connection signal="take_photo" from="." to="CanvasLayer/Camera" method="_on_photo_taken"]
+[connection signal="zoom" from="CanvasLayer/Camera" to="." method="_on_level_changed"]
 
 [editable path="CanvasLayer/Camera"]
